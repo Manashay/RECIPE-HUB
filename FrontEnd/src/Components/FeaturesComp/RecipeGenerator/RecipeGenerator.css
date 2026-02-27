@@ -1,0 +1,195 @@
+/* RecipeGenerator.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.generator-section {
+  background-color: #F9F5EC;
+  padding: 0 0 100px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-card {
+  background-color: #FFFFFF;
+  border-radius: 40px;
+  padding: 60px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 15;
+}
+
+/* Step Headers */
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.step-header.first {
+  margin-top: 0;
+}
+
+.step-number {
+  background-color: #194128;
+  color: #FFFFFF;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.step-title {
+  color: #194128;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* STEP 1: Ingredients */
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding-left: 47px;
+}
+
+.ingredient-card {
+  background-color: #F9F5EC;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.img-box {
+  background-color: #FFFFFF;
+  width: '70px'; /* Note: inline had string, corrected to standard CSS */
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #4A5568;
+  outline: none;
+  background-color: #FFFFFF;
+}
+
+/* STEP 2 & 4: Pills */
+.pills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-left: 47px;
+}
+
+.pill {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F9F5EC;
+  color: #4A5568;
+}
+
+.pill.selected {
+  background-color: #EC5833;
+  color: #FFFFFF;
+}
+
+/* STEP 3: Meal Types */
+.meal-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-left: 47px;
+}
+
+.meal-card {
+  background-color: #F9F5EC;
+  color: #4A5568;
+  border-radius: 20px;
+  padding: 20px 15px;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.meal-card.selected {
+  background-color: #EC5833;
+  color: #FFFFFF;
+}
+
+.meal-icon-circle {
+  background-color: #FFFFFF;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.meal-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.check-icon-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* SUBMIT BUTTON */
+.submit-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.submit-btn {
+  background-color: #EC5833;
+  color: #FFFFFF;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(236, 88, 51, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}

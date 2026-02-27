@@ -1,0 +1,112 @@
+/* FridgeSection.css */
+
+.fridge-section {
+  background-color: #F9F5EC; /* Floral White */
+  padding: 80px 40px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fridge-title {
+  color: #194128; /* British Racing Green */
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* 3-column Grid */
+.ingredients-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  max-width: 1100px !important;
+  margin: 0 auto 40px auto !important;
+}
+
+/* Individual Ingredient Pill */
+.ingredient-card {
+  background-color: #FFFFFF !important;
+  border-radius: 20px !important; /* Slightly more rectangular than a full pill for cards */
+  padding: 10px 25px !important;
+  display: flex !important;
+  align-items: center;
+  gap: 15px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* border: 1px solid transparent; */
+}
+
+.ingredient-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-color: #194128;
+}
+
+.ingredient-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.ingredient-name {
+  color: #194128;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Footer Buttons */
+.fridge-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-view-more {
+  background-color: transparent;
+  color: #194128;
+  border: 1.5px solid #194128;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-view-more:hover {
+  background-color: #194128;
+  color: #FFFFFF;
+}
+
+.btn-generate-main {
+  background-color: #EC5833; /* Cinnabar */
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(236, 88, 51, 0.2);
+  transition: all 0.2s;
+}
+
+.btn-generate-main:hover {
+  background-color: #d44b2a;
+  transform: scale(1.02);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+  .fridge-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}

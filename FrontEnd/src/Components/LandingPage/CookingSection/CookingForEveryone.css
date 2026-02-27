@@ -1,0 +1,121 @@
+/* Container and Section Setup */
+.yum-yard-section {
+  background-color: #f9f5ec;
+  padding: 100px 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Left Column: Text Content */
+.content-container {
+  padding-right: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-title {
+  color: #194128;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #4a5568;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 550px;
+}
+
+/* Feature Cards */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.icon-box {
+  min-width: 50px;
+  height: 50px;
+  background-color: #f9f5ec;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.feature-text {
+  font-size: 14px;
+  color: #4a5568;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Right Column: Image Composition */
+.image-wrapper {
+  position: relative;
+  height: 550px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Green Overlay Card with Cut Effect */
+.green-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 320px;
+  padding: 35px;
+  background-color: #194128;
+  border-top-right-radius: 40px;
+  z-index: 10;
+  border-top: 12px solid #f9f5ec;
+  border-right: 12px solid #f9f5ec;
+}
+
+.card-text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Decor */
+.floating-leaf {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 140px;
+  z-index: 0;
+  transform: rotate(45deg);
+  opacity: 0.9;
+}

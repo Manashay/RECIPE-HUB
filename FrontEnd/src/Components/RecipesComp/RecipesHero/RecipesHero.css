@@ -1,0 +1,124 @@
+/* RecipesHero.css */
+
+.recipes-hero-wrapper {
+  background-color: #F9F5EC; /* Floral White */
+  padding: 40px 60px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* RecipesHero.css */
+
+.recipes-hero-card {
+  /* Use a relative path to your assets folder */
+  background-image: url('../../../assets/RecipesHero.avif'); 
+  
+  /* Critical for the 'proper' position seen in your screenshot */
+  background-size: cover;
+  background-position: center right; /* Keeps the soup bowl on the right side */
+  background-repeat: no-repeat;
+  
+  border-radius: 30px;
+  padding: 80px 60px;
+  position: relative;
+  min-height: 450px; /* Ensures enough height to see the background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.recipes-hero-title {
+  color: #194128; /* British Racing Green */
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+/* Search Bar Pill */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #194128;
+  border-radius: 50px;
+  padding: 5px 5px 5px 25px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 25px rgba(25, 65, 40, 0.15);
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  flex: 1;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-button {
+  background-color: #EC5833; /* Cinnabar */
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+  transform: scale(1.05);
+}
+
+/* Popular Tags */
+.tags-section {
+  margin-top: 40px;
+}
+
+.tags-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #194128;
+  margin-bottom: 12px;
+}
+
+.tags-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tag-pill {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 50px;
+  padding: 8px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #194128;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-pill:hover {
+  border-color: #194128;
+  background-color: #F9F5EC;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .recipes-hero-title {
+    font-size: 32px;
+  }
+  .recipes-hero-card {
+    padding: 40px 20px;
+  }
+}

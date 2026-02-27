@@ -1,0 +1,65 @@
+/* RecipeCategories.css */
+
+.categories-wrapper {
+  background-color: #F9F5EC; /* Matches the global background */
+  padding: 40px 60px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.category-card {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  padding: 0px 10px !important;
+  width: 250px; /* Fixed width to keep cards uniform */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1.5px solid transparent;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  /* border-color: #194128 ; British Racing Green border on hover */
+}
+
+/* The circular image container */
+.category-img-container {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 5px;
+  background-color: #F9F5EC; /* Fallback background */
+  transform: translateY(-30px);
+}
+
+.category-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-name {
+  color: #194128; /* British Racing Green */
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+  .categories-wrapper {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .category-card {
+    width: calc(50% - 20px); /* 2 cards per row on mobile */
+  }
+}

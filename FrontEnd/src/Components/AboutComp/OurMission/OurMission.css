@@ -1,0 +1,159 @@
+/* OurMission.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.mission-section {
+  background-color: #F9F5EC;
+  padding: 80px 0 100px 0;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- FLOATING DECOR --- */
+.decor-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+}
+
+.floating-item {
+  position: absolute;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--rotate, 0deg) + 5deg)); }
+  100% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+}
+
+/* --- HEADER --- */
+.mission-header-title {
+  color: #194128;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.mission-text-content {
+  color: #4A5568;
+  font-size: 15px;
+  line-height: 1.8;
+  padding-right: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-paragraph {
+  margin-bottom: 25px;
+}
+
+/* --- IMAGE & OVERLAY --- */
+.mission-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  margin-top: 20px;
+}
+
+.mission-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.mission-overlay-card {
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  background-color: #194128;
+  color: #FFFFFF;
+  border-radius: 20px;
+  padding: 25px 30px;
+  width: 320px;
+  z-index: 5;
+  box-shadow: 0 15px 35px rgba(25, 65, 40, 0.2);
+}
+
+.mission-overlay-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- STATS GRID --- */
+.mission-stats-container {
+  margin-top: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-stat-card {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  padding: 40px 30px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.mission-stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.mission-stat-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.mission-stat-number {
+  color: #EC5833;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.mission-stat-label {
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mission-stat-desc {
+  color: #4A5568;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* --- RESPONSIVE LOGIC --- */
+@media (max-width: 992px) {
+  .mission-overlay-card.overlay-card-responsive {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin-bottom: -30px !important;
+    z-index: 10 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}

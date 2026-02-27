@@ -1,0 +1,129 @@
+/* AboutHero.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.about-hero-section {
+  background-color: #F9F5EC;
+  padding: 40px 0 100px 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.about-hero-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  margin-top: 20px;
+}
+
+/* --- ORANGE BACKGROUND BOX --- */
+.hero-orange-box {
+  background-color: #F0542E;
+  border-radius: 40px;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-main-title {
+  color: #FFFFFF;
+  font-size: clamp(46px, 6vw, 64px);
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 0.9;
+  max-width: 400px;
+}
+
+/* --- DARK GREEN BUTTON (THE CUTOUT) --- */
+.hero-green-button {
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  background-color: #194128;
+  color: #FFFFFF;
+  border-radius: 50px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  /* Thick beige shadow creates the "cutout" gap */
+  box-shadow: 0 0 0 16px #F9F5EC;
+}
+
+.hero-btn-text {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- RIGHT SIDE SALAD PLATE --- */
+.hero-plate-wrapper {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  /* Thick white border creates the "plate" edge */
+  border: 18px solid #FFFFFF;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.hero-plate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- FLOATING INGREDIENTS --- */
+.hero-floating-item {
+  position: absolute;
+  z-index: 6;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+  50% { transform: translateY(-15px) rotate(calc(var(--rotate, 0deg) + 5deg)); }
+  100% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 992px) {
+  .hero-plate-area { 
+    display: none; 
+  }
+  .hero-orange-box { 
+    padding: 40px !important; 
+    text-align: center; 
+  }
+  .hero-green-button { 
+    left: 50% !important; 
+    transform: translateX(-50%) !important; 
+    bottom: -30px !important; 
+  }
+  /* Ensure hover effect respects the translate-x on mobile */
+  .hero-green-button:hover {
+    transform: translateX(-50%) translateY(-3px) !important;
+  }
+}

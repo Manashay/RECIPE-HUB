@@ -1,0 +1,152 @@
+/* Section Base */
+.keto-section {
+  background-color: #f9f5ec;
+  padding: 100px 0;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-title {
+  color: #194128;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* LEFT COLUMN: Vertical Collage */
+.collage-wrapper {
+  position: relative;
+  max-width: 580px;
+  margin-right: auto;
+  width: 100%;
+}
+
+.top-image-container {
+  width: 100%;
+  height: 320px;
+  border-radius: 30px 30px 30px 0;
+  overflow: hidden;
+  border-bottom: 8px solid #f9f5ec;
+  position: relative;
+  background-color: #e0e0e0;
+}
+
+.bottom-image-container {
+  width: 100%;
+  height: 320px;
+  border-radius: 0 30px 30px 30px;
+  overflow: hidden;
+  border-top: 8px solid #f9f5ec;
+  margin-top: -16px;
+  position: relative;
+  z-index: 1;
+  background-color: #d0d0d0;
+}
+
+.collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Orange Floating Card */
+.floating-card {
+  background-color: #ec5833;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -40px;
+  width: 240px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(236, 88, 51, 0.25);
+}
+
+.card-text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* RIGHT COLUMN: Content */
+.content-container {
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.sub-title {
+  color: #194128;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.description {
+  color: #4a5568;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  max-width: 600px;
+}
+
+/* Feature Grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.feature-item {
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  white-space: nowrap;
+}
+
+/* 3D Floating Assets */
+.floating-asset {
+  position: absolute;
+  z-index: 0;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  animation: float-animation 6s ease-in-out infinite;
+}
+
+@keyframes float-animation {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+  .content-container {
+    padding-left: 0;
+    margin-top: 40px;
+  }
+  .floating-card {
+    right: 10px;
+    width: 200px;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

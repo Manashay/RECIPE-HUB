@@ -1,0 +1,117 @@
+/* HeroSection.css */
+:root {
+  --hero-bg: #F9F5EC;
+  --hero-green: #194128;
+  --hero-orange: #EC5833;
+  --hero-white: #FFFFFF;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--rotate-start, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--rotate-mid, 4deg)); }
+  100% { transform: translateY(0px) rotate(var(--rotate-start, 0deg)); }
+}
+
+.hero-section {
+  background-color: var(--hero-bg);
+  padding: 40px 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.hero-card {
+  background-color: var(--hero-green);
+  border-radius: 40px;
+  position: relative;
+  padding: 0;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+.hero-content {
+  padding: 60px 40px 100px 60px;
+  z-index: 30;
+  position: relative;
+}
+
+.hero-title {
+  color: var(--hero-white);
+  font-size: clamp(40px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+p.hero-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 18px !important;
+  max-width: 450px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 30px !important;
+}
+
+.hero-cutout {
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 400px;
+  height: 90px;
+  background-color: var(--hero-bg);
+  border-top-right-radius: 40px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+.hero-action-btn {
+  background-color: var(--hero-orange);
+  color: var(--hero-white);
+  width: 95%;
+  height: 70px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 15px 30px rgba(236, 88, 51, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.hero-action-btn:hover {
+  transform: scale(1.02);
+}
+
+.plate-container {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  width: 480px;
+  height: 480px;
+  z-index: 20;
+  border-radius: 50%;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  border: 8px solid rgba(255, 255, 255, 0.08);
+}
+
+.plate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Floating Ingredient Classes */
+.floating-asset {
+  position: absolute;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
+  animation: float 5s ease-in-out infinite;
+}
