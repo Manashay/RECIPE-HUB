@@ -75,5 +75,5 @@ app.get('/api/recipeList', async (req, res) => {
 });
 
 app.listen(Port, () => {
-    console.log("Listening on port :",)
+    console.log("Listening on port :", Port)
 });  

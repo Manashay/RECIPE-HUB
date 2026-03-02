@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const RecipesSchema = require("../models/recipes.js");
 const recipeData = require("./data.js");
 
-// const FridgeSchema = require('../models/FridegeSchema.js')
-// const fridgeData = require('./fridegeData.js');
+const FridgeSchema = require('../models/FridegeSchema.js')
+const fridgeData = require('./fridegeData.js');
 
 main().then( ()=>{
     console.log("Connection Successful");
@@ -12,7 +12,7 @@ main().then( ()=>{
 });
 
 async function main(){
-    mongoose.connect('mongodb://127.0.0.1:27017/RecipeHub');
+    mongoose.connect('mongodb://127.0.0.1:27017/RecipeHub1');
 };
 
 let insertData = async(obj)=>{
@@ -24,11 +24,11 @@ let insertData = async(obj)=>{
 
 insertData();
 
-// let fridgedata = async(items)=>{
-//     await FridgeSchema.deleteMany({});
-//     fridgeData.data = fridgeData.data.map( (item)=>({...item}));
-//     let result = await FridgeSchema.insertMany(fridgeData.data);
-//     console.log (result);
-// }
+let fridgedata = async(items)=>{
+    await FridgeSchema.deleteMany({});
+    fridgeData.data = fridgeData.data.map( (item)=>({...item}));
+    let result = await FridgeSchema.insertMany(fridgeData.data);
+    console.log (result);
+}
 
-// fridgedata();
+fridgedata();
