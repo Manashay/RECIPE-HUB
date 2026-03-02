@@ -67,7 +67,7 @@ const HeroSection = () => {
                  style={{ top: '65%', left: '48%', width: '100px', zIndex: 26, animationDelay: '1s', '--rotate-start': '15deg' }} />
 
             <img src={assets.carrot} className="floating-asset" 
-                 style={{ top: '-5%', left: '75%', width: '90px', animationDelay: '0.5s', '--rotate-start': '45deg' }} />
+                 style={{ top: '-5%', left: '75%', width: '90px', animationDelay: '0.5s', '--rotate-start': '45deg', zIndex: 26 }} />
 
             <img src={assets.tomato} className="floating-asset" 
                  style={{ top: '25%', left: '45%', width: '60px', animationDelay: '2s', '--rotate-start': '-15deg' }} />
@@ -76,7 +76,7 @@ const HeroSection = () => {
                  style={{ top: '80%', left: '60%', width: '70px', animationDelay: '1.5s', '--rotate-start': '30deg' }} />
             
             <img src={assets.garlic} className="floating-asset" 
-                 style={{ top: '75%', left: '85%', width: '50px', animationDelay: '1.8s', '--rotate-start': '10deg' }} />
+                 style={{ top: '75%', left: '85%', width: '50px', animationDelay: '1.8s', '--rotate-start': '10deg', zIndex: 26 }} />
           </div>
 
         </div>

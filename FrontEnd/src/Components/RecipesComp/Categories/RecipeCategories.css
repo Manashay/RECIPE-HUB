@@ -1,65 +1,67 @@
 /* RecipeCategories.css */
 
 .categories-wrapper {
-  background-color: #F9F5EC; /* Matches the global background */
-  padding: 40px 60px;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  font-family: 'Poppins', sans-serif;
+  background-color: #F9F5EC !important; 
+  /* Increased top padding from 40px to 80px so the floating images don't get cut off at the top of the section */
+  padding: 100px 60px 40px 60px !important; 
+  display: flex !important;
+  justify-content: center !important;
+  gap: 30px !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .category-card {
-  background-color: #FFFFFF;
-  border-radius: 24px;
-  padding: 0px 10px !important;
-  width: 250px; /* Fixed width to keep cards uniform */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1.5px solid transparent;
+  background-color: #FFFFFF !important;
+  border-radius: 20px !important; /* Slightly softened to match image */
+  width: 280px !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; 
+  position: relative !important; /* Crucial for absolute positioning the image */
+  /* Top padding ensures text is pushed down below the overlapping image */
+  padding: 70px 15px 25px 15px !important; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-  /* border-color: #194128 ; British Racing Green border on hover */
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06) !important;
 }
 
 /* The circular image container */
 .category-img-container {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 5px;
-  background-color: #F9F5EC; /* Fallback background */
-  transform: translateY(-30px);
+  position: absolute !important;
+  top: -60px !important; /* Pulls the image exactly halfway out of the top of the card */
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background-color: #F9F5EC !important; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important; /* Adds subtle depth to the plate */
 }
 
 .category-img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 .category-name {
-  color: #194128; /* British Racing Green */
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
+  color: #194128 !important; /* British Racing Green */
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 850px) {
   .categories-wrapper {
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: wrap !important;
+    gap: 80px 20px !important; /* Increased vertical gap to make room for the floating images on stacked rows */
   }
   .category-card {
-    width: calc(50% - 20px); /* 2 cards per row on mobile */
+    width: calc(50% - 20px) !important; /* 2 cards per row on mobile */
   }
 }

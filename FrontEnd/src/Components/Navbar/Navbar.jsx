@@ -1,5 +1,14 @@
-import { Leaf } from 'lucide-react'; // Assuming lucide-react based on syntax
-import './Navbar.css';
+import { 
+  Leaf,
+  X, 
+  ChevronDown, 
+  User, 
+  Heart, 
+  ShoppingCart, 
+  Calendar, 
+  LogOut 
+ } from 'lucide-react';
+ import './Navbar.css';
 
 const Navbar = () => {
   const navItems = ['Ingredients', 'Recipes', 'Features', 'About Us'];
@@ -14,13 +23,13 @@ const Navbar = () => {
             <div className="logo-icon-wrapper">
               <Leaf size={24} fill="#194128" strokeWidth={0} />
             </div>
-            <span className="brand-text"><a href='/'>Yum Yard</a></span>
+            <span className="brand-text"><a href='/'>YumYard</a></span>
           </div>
         </div>
 
         {/* CENTER: Links + Generate Button Pill */}
-        <div className="pill-container d-none d-lg-flex">
-          <div className="d-flex gap-4 align-items-center">
+        <div className="pill-container">
+          <div className="d-flex gap">
             {navItems.map((item) => (
               <a key={item} href={`/${item.toLowerCase()}`}  className="nav-link-custom">
                 {item}
