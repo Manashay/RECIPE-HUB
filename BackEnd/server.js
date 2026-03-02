@@ -60,13 +60,15 @@ app.get('/api/recipeDetails/:id', async (req, res) => {
     }
 });
 
-// Breakfast Recipes
+// MealType Recipes
 app.get('/api/recipeList', async (req, res) => {
     try {
         const { mealType } = req.query; 
         const recipes = await RecipesData.find({tags : `${mealType}`});
         // If no recipes found, you can return an empty array or a message
-        res.json(recipes);
+        setTimeout(() => {
+            res.json(recipes);
+        }, 100);
     } catch (error) {
         // Log the error for you, but send a clean message to the user
         console.error("Error Occurred: ", error.message);

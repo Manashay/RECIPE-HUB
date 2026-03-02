@@ -5,15 +5,23 @@ import breakfast from '../../../assets/breakfast.jpg';
 import lunch from '../../../assets/lunch.png';
 import dinner from '../../../assets/dinner.png';
 import snacks from '../../../assets/snacks.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 
 const TrendingRecipes = () => {
+  const navigate = useNavigate();
+
   const categories = [
     { name: 'Breakfast', img: breakfast },
     { name: 'Lunch', img: lunch },
     { name: 'Dinner', img: dinner },
     { name: 'Snacks', img: snacks },
   ];
+
+  const handleNavigation = (name)=>{
+    const route = name;
+    navigate(`/recipes/${route}`);
+  }
 
   return (
     <section className="trending-section">
@@ -22,8 +30,8 @@ const TrendingRecipes = () => {
         
         <div className="trending-grid">
           {/* Category Cards */}
-          {categories.map((cat, index) => (
-            <div key={index} className="trend-item">
+          {categories.map((cat, id) => (
+            <div key={id} className="trend-item" onClick={() => handleNavigation(cat.name)} >
               <div className="trend-img-circle ">
                 <img src={cat.img} alt={cat.name} />
               </div>
@@ -32,7 +40,7 @@ const TrendingRecipes = () => {
           ))}
 
           {/* Explore More Card */}
-          <div className="explore-card">
+          <div className="explore-card" onClick={() => navigate('/recipes')}>
             <h3 className="explore-text">Explore More Recipes</h3>
             <button className="explore-btn">
               <ArrowRight size={20} color="white" />

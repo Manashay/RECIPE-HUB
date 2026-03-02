@@ -58,6 +58,7 @@
   margin: 0;
 }
 
+
 .ingredients-section-body {
   padding-left: 47px;
 }
@@ -89,7 +90,40 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   margin-bottom: 20px;
+  padding: 5px;
 }
+
+/* Scroll Effect */
+.scrolleffect {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 6px;
+  transition: max-height 0.3s ease;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #F0542E #f1f1f1;
+}
+
+/* Chrome, Edge, Safari */
+.scrolleffect::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrolleffect::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrolleffect::-webkit-scrollbar-thumb {
+  background: #F0542E;
+  border-radius: 10px;
+}
+
+.scrolleffect::-webkit-scrollbar-thumb:hover {
+  background: #c94424;
+}
+
 
 .ingredient-card {
   background-color: var(--white);
@@ -244,7 +278,7 @@
   margin-top: 60px;
 }
 
-.submit-btn {
+.submit-btn , .clear-btn {
   background-color: var(--accent);
   color: var(--white);
   border: none;
@@ -255,6 +289,10 @@
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(236, 88, 51, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.clear-btn{
+  padding: 10px 20px;
 }
 
 .submit-btn:hover {

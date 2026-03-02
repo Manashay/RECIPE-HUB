@@ -26,17 +26,6 @@ const RecipeDetail = () => {
     fetchData();
   }, [id]);
 
-
-  const nutritionData = [
-    { label: 'Fat', value: '64 g' },
-    { label: 'Saturates', value: '36 g' },
-    { label: 'Carbs', value: '16 g' },
-    { label: 'Sugars', value: '0 g' },
-    { label: 'Fibre', value: '1 g' },
-    { label: 'Protein', value: '18 g' },
-    { label: 'Salt', value: '1.3g' },
-  ];
-
   return (
     <section className="recipe-detail-container">
       <div className="recipe-content-wrapper">

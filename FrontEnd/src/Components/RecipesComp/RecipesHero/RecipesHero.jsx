@@ -3,6 +3,8 @@ import { Search } from 'lucide-react';
 import './RecipesHero.css';
 
 const RecipesHero = () => {
+
+  // const [recipe, setRecipe] = useState('');
   const popularTags = ['Vegan', 'Vegetarian', 'Pescatarian', 'Omnivore'];
 
   return (
