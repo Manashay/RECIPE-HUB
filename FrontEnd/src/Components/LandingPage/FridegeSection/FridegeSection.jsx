@@ -12,7 +12,7 @@ const FridgeSection = ({ingredients}) => {
       <h2 className="fridge-title">What's In Your Fridge?</h2>
 
       <div className="ingredients-grid">
-        {ingredients.map((item) => (
+        {ingredients.slice(0,9).map((item) => (
           <div key={item._id} className="ingredient-card">
             <span style={{ fontSize: '24px' }}>{item.icon}</span>
             <span className="ingredient-name">{item.name}</span>

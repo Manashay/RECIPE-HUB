@@ -1,0 +1,51 @@
+.rec-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 8px !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  gap: 10px !important; /* Forces a safe distance between tags and stars */
+}
+
+/* Wrapper for the individual tag pills */
+.rec-tags-container {
+  display: flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  flex: 1 !important; /* Takes up available space */
+  overflow: hidden !important; /* Hides anything that spills out */
+  flex-wrap: nowrap !important; /* Forces a single straight line */
+}
+
+.rec-tag {
+  background-color: #FEF0ED !important;
+  color: #F0542E !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important; /* Prevents text from breaking into two lines */
+  flex-shrink: 0 !important; /* Prevents the pill from squishing */
+}
+
+.rec-tag.extra-tag {
+  background-color: #E8F0EA !important;
+  color: #194128 !important;
+}
+
+/* Rating side */
+.rec-rating {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important; /* CRITICAL: Prevents tags from squishing the stars */
+}
+
+.rec-review-text {
+  font-size: 11px !important;
+  color: #718096 !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}

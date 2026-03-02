@@ -48,7 +48,7 @@
 
 p.hero-subtitle {
   color: rgba(255, 255, 255, 0.9) !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
   max-width: 450px !important;
   line-height: 1.6 !important;
   margin-bottom: 30px !important;
@@ -96,7 +96,7 @@ p.hero-subtitle {
   transform: translateY(-50%);
   width: 480px;
   height: 480px;
-  z-index: 20;
+  /* z-index: ; */
   border-radius: 50%;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
   border: 8px solid rgba(255, 255, 255, 0.08);
@@ -107,11 +107,13 @@ p.hero-subtitle {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  /* z-index: 1 !important; */
 }
 
 /* Floating Ingredient Classes */
 .floating-asset {
   position: absolute;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3)) !important;
   animation: float 5s ease-in-out infinite;
+  z-index: 100 !important;
 }

@@ -6,21 +6,24 @@ import FridgeSection from '../Components/LandingPage/FridegeSection/FridegeSecti
 import CookingSection from '../Components/LandingPage/CookingSection/CookingSection.jsx';
 import CookingForEveryone from '../Components/LandingPage/CookingSection/CookingForEveryone.jsx';
 import TrendingRecipes from '../Components/LandingPage/TrendingRecipes/TrendingRecipes.jsx';
+import Ingredients from '../Components/IngredientsComp/IngredientItems.jsx';
 
 const Home = () => {
 
     // Fridge Ingredients
-    const [ingredients, setIngredients] = useState([]); // Our Storage
+    const [ingredients, setIngredients] = useState([]); 
+
     useEffect(() => {
-        (async () => {
+        const fetchIngredients = async () => {
             try {
-                let response = await axios.get('/api/ingredients');
+                const response = await axios.get('/api/ingredients');
                 setIngredients(response.data);
-                    
             } catch (error) {
-                console.log("Error Occurred", error.message);     
+                console.error("Error fetching ingredients:", error.message);    
             }
-        })();
+        };
+
+        fetchIngredients();
     }, []);
 
     

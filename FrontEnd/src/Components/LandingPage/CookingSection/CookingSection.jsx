@@ -23,7 +23,7 @@ const KetoSection = () => {
   ];
 
   return (
-    <section className="keto-section">
+    <section className="yum-yard-section">
       <div className="container position-relative">
         
         {/* 3D ASSETS CLUSTER */}
