@@ -1,3 +1,3 @@
 # RECIPE-HUB
 
-Let's start this yummy project.😋-
+Let's start this yummy project.😋
