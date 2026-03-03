@@ -1,0 +1,209 @@
+.edit-page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    font-family: 'Poppins', sans-serif;
+    animation: authFadeUp 0.35s ease both;
+  }
+  
+  /* Header */
+  .edit-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .edit-back {
+    display: flex; align-items: center; gap: 6px;
+    background: none; border: 1.5px solid #e2e8f0;
+    border-radius: 10px; padding: 8px 14px;
+    font-size: 0.85rem; color: #555; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .edit-back:hover { border-color: #194128; color: #194128; }
+  
+  .edit-header-title {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .edit-logo-icon {
+    width: 30px; height: 30px; background: #194128;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  }
+  .edit-header-title h1 {
+    font-size: 1.4rem; font-weight: 700; color: #111; margin: 0;
+  }
+  
+  /* Alerts */
+  .edit-error {
+    background: #fff5f5; border: 1px solid #fed7d7;
+    border-radius: 10px; padding: 12px 16px;
+    color: #c53030; font-size: 0.85rem; margin-bottom: 20px;
+  }
+  .edit-success {
+    background: #f0fff4; border: 1px solid #9ae6b4;
+    border-radius: 10px; padding: 12px 16px;
+    color: #276749; font-size: 0.85rem; margin-bottom: 20px;
+  }
+  
+  /* Sections */
+  .edit-section {
+    background: #fff;
+    border: 1.5px solid #f0f0f0;
+    border-radius: 18px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+  }
+  .edit-section-title {
+    font-size: 0.95rem; font-weight: 700;
+    color: #194128; margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Grids */
+  .edit-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .edit-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  
+  /* Fields */
+  .edit-field { display: flex; flex-direction: column; gap: 6px; }
+  .edit-field label { font-size: 0.8rem; font-weight: 600; color: #444; }
+  .edit-field input,
+  .edit-field textarea {
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    color: #222;
+    background: #fafafa;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .edit-field input:focus,
+  .edit-field textarea:focus { border-color: #194128; background: #fff; }
+  
+  /* Add button */
+  .edit-add-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 10px 18px;
+    background: #194128; color: #fff;
+    border: none; border-radius: 10px;
+    font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .edit-add-btn:hover { background: #0f2919; }
+  
+  /* Tags */
+  .edit-tag-input-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .edit-tag-input-row input { flex: 1; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 0.875rem; outline: none; transition: border-color 0.2s; }
+  .edit-tag-input-row input:focus { border-color: #194128; }
+  
+  .edit-tags-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .edit-tag {
+    display: flex; align-items: center; gap: 6px;
+    background: #f0fff4; border: 1px solid #9ae6b4;
+    color: #194128; padding: 5px 12px;
+    border-radius: 99px; font-size: 0.8rem; font-weight: 500;
+  }
+  .edit-tag button {
+    background: none; border: none; cursor: pointer;
+    color: #194128; display: flex; padding: 0;
+  }
+  .edit-tag button:hover { color: #e53e3e; }
+  
+  /* Nutrition */
+  .edit-nutri-input-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .edit-nutri-input-row input { flex: 1; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 0.875rem; outline: none; transition: border-color 0.2s; }
+  .edit-nutri-input-row input:focus { border-color: #194128; }
+  
+  .edit-nutri-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .edit-nutri-item {
+    display: flex; align-items: center; gap: 8px;
+    background: #fafafa; border: 1.5px solid #eee;
+    border-radius: 10px; padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+  .edit-nutri-label { color: #888; }
+  .edit-nutri-value { font-weight: 700; color: #194128; }
+  .edit-nutri-item button {
+    background: none; border: none; cursor: pointer;
+    color: #ccc; display: flex; padding: 0; margin-left: 4px;
+  }
+  .edit-nutri-item button:hover { color: #e53e3e; }
+  
+  /* Submit row */
+  .edit-submit-row {
+    display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;
+  }
+  .edit-cancel-btn {
+    padding: 12px 24px; border-radius: 10px;
+    background: #f5f5f5; color: #555;
+    border: none; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .edit-cancel-btn:hover { background: #e8e8e8; }
+  
+  .edit-save-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 28px; border-radius: 10px;
+    background: #194128; color: #fff;
+    border: none; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .edit-save-btn:hover:not(:disabled) { background: #0f2919; }
+  .edit-save-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  
+  /* Loading */
+  .edit-loading {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 60vh; gap: 14px; color: #888;
+  }
+  .edit-spinner-icon { animation: spin 1s linear infinite; color: #194128; }
+  
+  /* Reuse existing animations */
+  @keyframes authFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .edit-grid-2, .edit-grid-3 { grid-template-columns: 1fr; }
+    .edit-nutri-input-row { flex-direction: column; }
+  }
+ 
+
+  /* ── Ingredients ────────────────────────────────────────── */
+.edit-ingr-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.edit-ingr-row input  { flex: 1; min-width: 100px; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 0.875rem; outline: none; transition: border-color 0.2s; }
+.edit-ingr-row input:focus { border-color: #194128; }
+.edit-ingr-row select { padding: 10px 10px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 0.875rem; outline: none; background: #fafafa; color: #333; cursor: pointer; }
+.edit-ingr-row select:focus { border-color: #194128; }
+
+.edit-ingr-list  { display: flex; flex-direction: column; gap: 8px; }
+.edit-ingr-item  { display: flex; align-items: center; gap: 10px; background: #fafafa; border: 1.5px solid #eee; border-radius: 10px; padding: 10px 14px; }
+.edit-ingr-name  { flex: 1; font-size: 0.875rem; color: #222; font-weight: 500; }
+.edit-ingr-qty   { font-size: 0.82rem; color: #194128; font-weight: 600; background: #f0fff4; padding: 3px 10px; border-radius: 99px; }
+.edit-ingr-item button { background: none; border: none; cursor: pointer; color: #ccc; display: flex; padding: 0; margin-left: auto; }
+.edit-ingr-item button:hover { color: #e53e3e; }
+
+/* ── Instructions ───────────────────────────────────────── */
+.edit-step-row { display: flex; gap: 10px; margin-bottom: 14px; align-items: flex-start; }
+.edit-step-row textarea { flex: 1; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 0.875rem; outline: none; font-family: 'Poppins', sans-serif; resize: none; transition: border-color 0.2s; }
+.edit-step-row textarea:focus { border-color: #194128; }
+
+.edit-steps-list { display: flex; flex-direction: column; gap: 10px; }
+.edit-step-item  { display: flex; align-items: flex-start; gap: 12px; background: #fafafa; border: 1.5px solid #eee; border-radius: 12px; padding: 12px 16px; }
+.edit-step-number { font-size: 0.75rem; font-weight: 700; color: #fff; background: #194128; padding: 3px 10px; border-radius: 99px; white-space: nowrap; margin-top: 2px; }
+.edit-step-text   { flex: 1; font-size: 0.875rem; color: #333; line-height: 1.5; }
+.edit-step-item button { background: none; border: none; cursor: pointer; color: #ccc; display: flex; padding: 0; margin-left: auto; flex-shrink: 0; }
+.edit-step-item button:hover { color: #e53e3e; }

@@ -1,81 +1,41 @@
 require('dotenv').config();
 const express = require("express");
-const app = express();
 const cors = require('cors');
-app.use(cors())
-const Port = process.env.PORT;
+const mongoose = require('mongoose');
 
-const RecipesData = require('./models/recipes.js');
+const app = express();
+
+// ── Middleware ────────────────────────────────────────────────
+app.use(cors({ origin: "http://localhost:3000" }));
+app.use(express.json());
+
+// ── Models ────────────────────────────────────────────────────
 const FridgeItems = require('./models/FridegeSchema.js');
 
-const mongoose = require('mongoose');
-const MongoUrl = process.env.MONGO_URL;
+// ── Routes ────────────────────────────────────────────────────
+app.use("/api/auth",    require("./routes/authRoutes"));
+app.use("/api/recipes", require("./routes/recipeRoutes"));  // 🆕 all recipe routes
 
-main().then(() => {
-    console.log("Connection successful");
-}).catch((err) => {
-    console.log("Error occure", err.message);
-})
-
-async function main() {
-    mongoose.connect(MongoUrl);
-}
-
-// Fridge items
+// ── Ingredients (stays here since no separate router yet) ─────
 app.get('/api/ingredients', async (req, res) => {
     try {
         const allIngredients = await FridgeItems.find({});
-        setTimeout(() => {
-            res.json(allIngredients);
-        }, 100);
+        res.json(allIngredients);
     } catch (err) {
-        res.status(500).send(err.message);
+        res.status(500).json({ message: err.message });
     }
 });
 
-// Recipes data
-app.get('/api/recipes', async (req, res) => {
-    try {
-        const allRecipes = await RecipesData.find({});
-        setTimeout(() => {
-            res.json(allRecipes);
-        }, 100);
-    } catch (err) {
-        res.status(500).send(err.message);
-    }
-});
-
-// Recipe Data using id
-app.get('/api/recipeDetails/:id', async (req, res) => {
-    try {
-        let {id} = req.params;
-        const recipe = await RecipesData.findById(id);
-
-        if (!recipe) {
-            return res.status(404).json({ message: "Recipe not found" });
-        }
-        res.json(recipe);
-    } catch (error) {
-        res.status(500).json({ message: "Server Error" });
-    }
-});
-
-// MealType Recipes
-app.get('/api/recipeList', async (req, res) => {
-    try {
-        const { mealType } = req.query; 
-        const recipes = await RecipesData.find({tags : `${mealType}`});
-        // If no recipes found, you can return an empty array or a message
-        setTimeout(() => {
-            res.json(recipes);
-        }, 100);
-    } catch (error) {
-        // Log the error for you, but send a clean message to the user
-        console.error("Error Occurred: ", error.message);
-        res.status(500).json({ message: "Server error fetching recipes" });
-    }
-});
-
-app.listen(Port, () => {
-    console.log("Listening on port :", Port)
-});  
+// ── Start Server ──────────────────────────────────────────────
+mongoose
+    .connect(process.env.MONGO_URL)
+    .then(() => {
+        console.log("MongoDB connected");
+        app.listen(process.env.PORT, () => {
+            console.log(`Server running on port ${process.env.PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.error("MongoDB connection failed:", err.message);
+        process.exit(1);
+    });
