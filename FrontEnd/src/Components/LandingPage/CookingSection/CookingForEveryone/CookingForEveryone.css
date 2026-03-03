@@ -15,7 +15,7 @@
 
 }
 
-.main-title {
+.content-container .main-title {
   color: #194128 !important;
   font-size: 38px !important;
   font-weight: 700 !important;
@@ -119,4 +119,26 @@
   z-index: 0 !important;
   transform: rotate(45deg) !important;
   opacity: 0.9 !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+  .content-container {
+    padding-right: 0 !important; /* Removes the huge gap on mobile */
+    margin-bottom: 40px !important; /* Adds space before the image */
+  }
+  
+  .image-wrapper {
+    height: 400px !important; /* Makes the image shorter on phones */
+  }
+  
+  .green-card {
+    width: 85% !important; /* Allows the card to shrink on tiny phones */
+    padding: 25px !important; 
+    border-top-right-radius: 30px !important;
+  }
+  
+  .green-card .card-text {
+    font-size: 16px !important;
+  }
 }

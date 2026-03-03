@@ -82,7 +82,7 @@
   box-shadow: 0 15px 35px rgba(236, 88, 51, 0.3) !important;
 }
 
-.card-text {
+.floating-card .card-text {
   color: #ffffff !important;
   font-size: 15px !important;
   font-weight: 600 !important;

@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Recipes from './pages/Recipes.jsx'

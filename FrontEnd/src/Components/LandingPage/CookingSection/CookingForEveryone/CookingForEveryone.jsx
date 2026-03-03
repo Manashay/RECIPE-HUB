@@ -1,5 +1,5 @@
 import React from 'react';
-import './CookingForEveryone.css'; // Ensure this path is correct
+import './CookingForEveryone.css';
 
 const YumYard = () => {
   const assets = {
@@ -13,7 +13,7 @@ const YumYard = () => {
 
   return (
     <section className="yum-yard-section">
-      <div className="container">
+      <div className="container position-relative">
         <div className="row align-items-center">
           
           {/* LEFT: Text Content */}

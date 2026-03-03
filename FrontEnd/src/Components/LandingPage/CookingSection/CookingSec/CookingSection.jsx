@@ -28,11 +28,11 @@ const KetoSection = () => {
         
         {/* 3D ASSETS CLUSTER */}
         <div className="d-none d-lg-block">
-          <img src={assets.tomato} className="floating-asset" style={{ top: '5%', right: '-5%', width: '100px', transform: 'rotate(15deg)', animationDelay: '0s' }} alt="" />
-          <img src={assets.leaf} className="floating-asset" style={{ top: '18%', right: '-2%', width: '120px', transform: 'rotate(-20deg)', animationDelay: '1s' }} alt="" />
-          <img src={assets.garlic} className="floating-asset" style={{ top: '45%', right: '-6%', width: '80px', transform: 'rotate(45deg)', animationDelay: '2s' }} alt="" />
-          <img src={assets.broccoli} className="floating-asset" style={{ top: '75%', right: '-4%', width: '110px', transform: 'rotate(-10deg)', animationDelay: '1.5s' }} alt="" />
-          <img src={assets.avocado} className="floating-asset" style={{ top: '85%', right: '-8%', width: '90px', transform: 'rotate(30deg)', animationDelay: '0.5s' }} alt="" />
+          <img src={assets.tomato} className="floating-asset" style={{ top: '5%', right: '-5%', width: '100px', transform: '--rotation', animationDelay: '0s' }} alt="" />
+          <img src={assets.leaf} className="floating-asset" style={{ top: '18%', right: '-2%', width: '120px', transform: '--rotation', animationDelay: '1s' }} alt="" />
+          <img src={assets.garlic} className="floating-asset" style={{ top: '45%', right: '-6%', width: '80px', transform: '--rotation', animationDelay: '2s' }} alt="" />
+          <img src={assets.broccoli} className="floating-asset" style={{ top: '75%', right: '-4%', width: '110px', transform: '--rotation', animationDelay: '1.5s' }} alt="" />
+          <img src={assets.avocado} className="floating-asset" style={{ top: '85%', right: '-8%', width: '90px', transform: '--rotation', animationDelay: '0.5s' }} alt="" />
         </div>
 
         <h2 className="main-title">Explore the World of Flavors at Yum Yard</h2>

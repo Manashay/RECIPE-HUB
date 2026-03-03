@@ -2,103 +2,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .about-hero-section {
-  background-color: #F9F5EC;
-  padding: 40px 0 100px 0;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+  background-color: #F9F5EC !important;
+  padding: 40px 0 100px 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+  overflow: hidden !important;
 }
 
 .about-hero-wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 450px;
-  margin-top: 20px;
+  position: relative !important;
+  width: 100% !important;
+  min-height: 450px !important;
+  margin-top: 20px !important;
 }
 
 /* --- ORANGE BACKGROUND BOX --- */
 .hero-orange-box {
-  background-color: #F0542E;
-  border-radius: 40px;
-  width: 100%;
-  height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 60px;
-  position: relative;
-  z-index: 1;
+  background-color: #F0542E !important;
+  border-radius: 40px !important;
+  width: 100% !important;
+  height: 420px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 0 60px !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 .hero-main-title {
-  color: #FFFFFF;
-  font-size: clamp(46px, 6vw, 64px);
-  font-weight: 600;
-  margin-bottom: 15px;
-  letter-spacing: -1px;
+  color: #FFFFFF !important;
+  font-size: clamp(46px, 6vw, 64px) !important;
+  font-weight: 600 !important;
+  margin-bottom: 15px !important;
+  letter-spacing: -1px !important;
 }
 
-.hero-subtitle {
-  color: #FFFFFF;
-  font-size: 20px;
-  font-weight: 400;
-  opacity: 0.9;
-  max-width: 400px;
+.hero-orange-box .hero-subtitle {
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  opacity: 0.9 !important;
+  max-width: 400px !important;
 }
 
 /* --- DARK GREEN BUTTON (THE CUTOUT) --- */
 .hero-green-button {
-  position: absolute;
-  bottom: -20px;
-  left: 40px;
-  background-color: #194128;
-  color: #FFFFFF;
-  border-radius: 50px;
-  padding: 20px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 320px;
-  z-index: 10;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 40px !important;
+  background-color: #194128 !important;
+  color: #FFFFFF !important;
+  border-radius: 50px !important;
+  padding: 20px 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 320px !important;
+  z-index: 10 !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease !important;
   /* Thick beige shadow creates the "cutout" gap */
-  box-shadow: 0 0 0 16px #F9F5EC;
+  box-shadow: 0 0 0 16px #F9F5EC !important;
 }
 
 .hero-btn-text {
-  font-size: 15px;
-  font-weight: 500;
-  margin: 0;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
 }
 
 /* --- RIGHT SIDE SALAD PLATE --- */
 .hero-plate-wrapper {
-  position: absolute;
-  right: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
+  position: absolute !important;
+  right: 60px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 380px !important;
+  height: 380px !important;
+  border-radius: 50% !important;
   /* Thick white border creates the "plate" edge */
-  border: 18px solid #FFFFFF;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-  overflow: hidden;
-  z-index: 5;
+  border: 18px solid #FFFFFF !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15) !important;
+  overflow: hidden !important;
+  z-index: 5 !important;
 }
 
 .hero-plate-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 /* --- FLOATING INGREDIENTS --- */
 .hero-floating-item {
-  position: absolute;
-  z-index: 6;
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2));
-  animation: float 6s ease-in-out infinite;
+  position: absolute !important;
+  z-index: 6 !important;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2)) !important;
+  animation: float 6s ease-in-out infinite !important; /* No !important inside keyframes below */
 }
 
 /* --- ANIMATIONS --- */
@@ -110,18 +110,22 @@
 
 /* --- RESPONSIVENESS --- */
 @media (max-width: 992px) {
-  .hero-plate-area { 
-    display: none; 
+  /* BUG FIXED: Changed from .hero-plate-area to .hero-plate-wrapper to match the HTML */
+  .hero-plate-wrapper { 
+    display: none !important; 
   }
+  
   .hero-orange-box { 
     padding: 40px !important; 
-    text-align: center; 
+    text-align: center !important; 
   }
+  
   .hero-green-button { 
     left: 50% !important; 
     transform: translateX(-50%) !important; 
     bottom: -30px !important; 
   }
+  
   /* Ensure hover effect respects the translate-x on mobile */
   .hero-green-button:hover {
     transform: translateX(-50%) translateY(-3px) !important;

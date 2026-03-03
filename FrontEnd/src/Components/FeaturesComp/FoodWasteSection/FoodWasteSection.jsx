@@ -46,7 +46,7 @@ const FoodWasteSection = () => {
         <div className="row align-items-stretch">
           
           {/* LEFT COLUMN */}
-          <div className="col-lg-3 col-md-6 d-flex flex-column justify-content-between">
+          <div className=" col-md d-flex flex-column">
             {leftColumnData.map((stat, index) => (
               <StatCard key={index} {...stat} />
             ))}
@@ -72,7 +72,7 @@ const FoodWasteSection = () => {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="col-lg-3 col-md-6 d-flex flex-column justify-content-between mt-4 mt-md-0">
+          <div className=" col-md d-flex flex-column">
             {rightColumnData.map((stat, index) => (
               <StatCard key={index} {...stat} />
             ))}

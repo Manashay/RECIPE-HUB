@@ -2,76 +2,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 .features-hero-section {
-    background-color: #F9F5EC;
-    padding: 40px 0 160px 0;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    overflow: hidden;
+  background-color: #F9F5EC !important;
+  padding: 40px 0 160px 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 /* Left Column: Text Content */
 .hero-content-container {
-    padding-right: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 5;
-    position: relative;
-    margin-top: 20px;
+  padding-right: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  z-index: 5 !important;
+  position: relative !important;
+  margin-top: 20px !important;
 }
 
 .hero-main-title {
-    color: #194128 !important;
-    /* Responsive font size using clamp */
-    font-size: clamp(42px, 5vw, 56px);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    letter-spacing: -1px;
+  color: #194128 !important;
+  /* Responsive font size using clamp */
+  font-size: clamp(42px, 5vw, 56px) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 24px !important;
+  letter-spacing: -1px !important;
 }
 
-.hero-subtitle {
-    color: #4A5568 !important;
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 400;
-    max-width: 520px;
-    margin-bottom: 0;
+.hero-content-container .hero-subtitle {
+  color: #4a5568 !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+  max-width: 520px !important;
+  margin-bottom: 0 !important;
 }
 
 /* Right Column: Image Composition */
 .hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+  position: relative !important;
+  width: 100% !important;
+  height: 450px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 10px !important;
 }
 
 .hero-main-image {
-    width: 90%;
-    height: 100%;
-    object-fit: contain;
-    /* Blends image background into beige page */
-    mix-blend-mode: darken;
-    z-index: 2;
-    position: relative;
+  width: 90% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  /* Blends image background into beige page */
+  mix-blend-mode: darken !important;
+  z-index: 2 !important;
+  position: relative !important;
 }
-
 
 /* Floating Animation */
 @keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
 /* Base class for floating elements (if you decide to add them back) */
 .floating-asset {
-    position: absolute;
-    z-index: 3;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
-    animation: float 6s ease-in-out infinite;
+  position: absolute !important;
+  z-index: 3 !important;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15)) !important;
+  animation: float 6s ease-in-out infinite !important;
 }
