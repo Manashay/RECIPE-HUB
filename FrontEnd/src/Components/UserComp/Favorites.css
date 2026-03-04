@@ -1,0 +1,149 @@
+/* Favorites.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- DASHBOARD SPLIT LAYOUT --- */
+.favorites-dashboard-layout {
+  display: flex !important;
+  background-color: #F9F5EC !important;
+  min-height: 100vh !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.dashboard-sidebar-wrapper {
+  width: 280px !important;
+  flex-shrink: 0 !important;
+  background-color: #F9F5EC !important;
+  border-right: 1px solid #EBE4D5 !important;
+  min-height: 800px;
+  /* If your FavoriteSidebar has its own fixed styling, this acts as a safe container */
+}
+
+.dashboard-content-area {
+  flex-grow: 1 !important;
+  padding: 40px !important;
+}
+
+/* --- THE RECIPE GRID --- */
+/* Container for the Favorites grid */
+.fav-recipes-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+  gap: 30px !important;
+}
+
+/* Individual Card Styling */
+.fav-card {
+  background-color: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: 15px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.fav-card-image-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  height: 180px !important;
+  border-radius: 16px !important;
+  /* border-top-right-radius: 40px !important;  */
+  overflow: hidden !important;
+  margin-bottom: 15px !important;
+}
+
+.fav-card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.fav-btn {
+  position: absolute !important;
+  top: -5px !important;
+  right: -5px !important;
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #F9F5EC !important; 
+  border-radius: 50% !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 0 6px #FFFFFF !important; 
+  z-index: 10 !important;
+}
+
+.fav-card-title {
+  color: #194128 !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  margin: 0 0 12px 0 !important;
+  height: 44px !important;
+  overflow: hidden !important;
+}
+
+.fav-meta-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 15px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #F0F0F0 !important;
+}
+
+.fav-meta-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  color: #718096 !important;
+}
+
+/* Footer & Tag Styling */
+.rec-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: auto !important;
+  gap: 10px !important; 
+}
+
+.rec-tags-container {
+  display: flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+}
+
+.rec-tag {
+  background-color: #FEF0ED !important;
+  color: #F0542E !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important;
+}
+
+.rec-tag.extra-tag {
+  background-color: #E8F0EA !important;
+  color: #194128 !important;
+}
+
+.rec-rating {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 2px !important;
+}
+
+.fav-stars-row {
+  display: flex !important;
+  gap: 2px !important;
+}
+
+.rec-review-text {
+  font-size: 10px !important;
+  color: #A0AEC0 !important;
+  font-weight: 500 !important;
+}

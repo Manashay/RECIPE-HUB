@@ -2,7 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const User = require('../models/User');
 
-const email = 'admin@gmail.com';   // the email you registered with
+const email = 'manashaychawre@gmail.com';   // the email you registered with
 
 mongoose.connect(process.env.MONGO_URL).then(async () => {
 

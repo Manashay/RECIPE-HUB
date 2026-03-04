@@ -21,6 +21,11 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx'; // user's saved recipes, profile, etc.
 
+import DashboardLayout from './Components/UserComp/DashboardLayout.jsx';
+import Favorites from './Components/UserComp/Favorite/Favorites.jsx';
+import GroceryList from './Components/UserComp/Grocery/GroceryList.jsx';
+import MealPlanner from './Components/UserComp/MealPlanner/MealPlanner.jsx';
+
 function Layout() {
   return (
     <>
@@ -71,9 +76,23 @@ const router = createBrowserRouter([
       { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /><IngredientsDetails /></ProtectedRoute> },
       { path: "/recipes/:mealType", element: <ProtectedRoute><RecipesList /></ProtectedRoute> },
 
-      { path: "/dashboard", element: <ProtectedRoute><Dashboard /></ProtectedRoute> },
+      { path: "/dashboard", element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
+        children: [
+          // The empty path "" means this loads at exactly "/dashboard"
+          { path: "", element: <Dashboard /> }, 
+          // This loads at "/dashboard/favorites"
+          { path: "favorites", element: <Favorites /> },
+          // You can add your future routes here easily:
+          { path: "grocerylist", element: <GroceryList /> },
+          { path: "mealplanner", element: <MealPlanner /> },
+        ]
+
+
+       },
 
       { path: "*", element: <Navigate to="/login" replace /> },  // 👈 unknown routes → login
+
+      {path: "/dashboard/favorites", element:<ProtectedRoute><Favorites /></ProtectedRoute>},
     ]
   }
 ]);

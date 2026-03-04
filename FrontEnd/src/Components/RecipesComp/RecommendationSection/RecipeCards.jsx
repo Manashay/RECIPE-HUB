@@ -1,24 +1,26 @@
 import RatingStars from '../../Helper/RatingStars.jsx';
 import { Clock, Users, Flame, Heart, Star } from 'lucide-react';
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const RecipeCards = React.memo(({ item, initiallyFavorite, onToggleFavorite }) => {
+const RecipeCards = React.memo(({ item, onToggleFavorite }) => {
   const navigate = useNavigate();
-  const [isFavorite, setIsFavorite] = useState(initiallyFavorite);
+  
+  // 1. No useState! Just read the exact truth from the database item.
+  const isFavorite = item.isFavorite === true;
 
   const onCardClick = () => {
     navigate(`/recipeDetails/${item._id}`);
   };
 
   const handleFavoriteClick = (e) => {
-    e.stopPropagation(); // Stops the card from navigating to the details page!
+    e.stopPropagation(); 
     
-    const newFavState = !isFavorite;
-    setIsFavorite(newFavState);
-    
+    // 2. Just tell the parent page to do the heavy lifting
     if (onToggleFavorite) {
-      onToggleFavorite(item._id, newFavState); 
+      onToggleFavorite(item._id, !isFavorite); 
+    } else {
+      console.warn("onToggleFavorite function is missing from the parent component!");
     }
   };
 
@@ -51,14 +53,12 @@ const RecipeCards = React.memo(({ item, initiallyFavorite, onToggleFavorite }) =
         </div>
 
         <div className="rec-footer">
-          {/* Tag Pills Container */}
           <div className="rec-tags-container">
             {item.tags && item.tags.slice(0, 1).map((tag, index) => (
               <span key={index} className="rec-tag">
                 {tag}
               </span>
             ))}
-            {/* Show +X if there are more tags */}
             {item.tags && item.tags.length > 1 && (
               <span className="rec-tag extra-tag">
                 +{item.tags.length - 1}
@@ -66,10 +66,9 @@ const RecipeCards = React.memo(({ item, initiallyFavorite, onToggleFavorite }) =
             )}
           </div>
 
-          {/* Rating Container */}
           <div className="rec-rating">
-            <RatingStars rating={item.rating.average} />
-            <span className="rec-review-text">{item.rating.reviewCount} Reviews</span>
+            <RatingStars rating={item.rating?.average || 0} />
+            <span className="rec-review-text">{item.rating?.reviewCount || 0} Reviews</span>
           </div>
         </div>
       </div>

@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-// POST — admin only
 // POST add new recipe — admin only
 router.post("/", protect, restrictTo("admin"), async (req, res) => {
     try {
@@ -62,7 +61,6 @@ router.put("/:id", protect, restrictTo("admin"), async (req, res) => {
     }
 });
 
-
 // DELETE recipe — admin only
 router.delete("/:id", protect, restrictTo("admin"), async (req, res) => {
     try {
@@ -71,6 +69,53 @@ router.delete("/:id", protect, restrictTo("admin"), async (req, res) => {
         res.json({ message: "Recipe deleted successfully" });
     } catch (err) {
         res.status(500).json({ message: "Server error" });
+    }
+});
+
+// ==========================================
+// NEW: PUT route to update a recipe's favorite status
+// Path changed to /:id/favorite to avoid conflict with admin PUT route
+// ==========================================
+router.put('/:id/favorite', async (req, res) => {
+    try {
+        const recipeId = req.params.id;
+        const { isFavorite } = req.body;
+
+        // FIXED: Changed "Recipe" to "RecipesData" to match your import at the top
+        const updatedRecipe = await RecipesData.findByIdAndUpdate(
+            recipeId,
+            { isFavorite: isFavorite },
+            { new: true } 
+        );
+
+        if (!updatedRecipe) {
+            return res.status(404).json({ message: "Recipe not found" });
+        }
+
+        res.status(200).json(updatedRecipe);
+        
+    } catch (error) {
+        console.error("Error updating recipe:", error);
+        res.status(500).json({ message: "Server error while updating favorite status" });
+    }
+});
+
+router.get("/dashboard/counts", async (req, res) => {
+    try {
+        // Run counts in parallel
+        const [favCount, totalRecipes] = await Promise.all([
+            RecipesData.countDocuments({ isFavorite: true }),
+            RecipesData.countDocuments({}) // Currently maps to "My Recipes"
+        ]);
+
+        res.json({
+            favorites: favCount,
+            myRecipes: totalRecipes,
+            shoppingList: 0, // Placeholder until we build the Grocery List schema
+            mealPlanner: 0
+        });
+    } catch (err) {
+        res.status(500).json({ message: "Error fetching dashboard counts" });
     }
 });
 

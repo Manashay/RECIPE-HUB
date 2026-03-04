@@ -1,0 +1,76 @@
+/* FavoriteSidebar.css */
+
+.fav-sidebar {
+  background-color: #FFFFFF !important;
+  width: 280px !important;
+  
+  /* The new margins to offset the sidebar */
+  margin: 20px 0 20px 20px !important; 
+  
+  /* Adjusted height so it doesn't break past the bottom of the screen */
+  height: calc(100vh - 40px) !important; 
+  
+  /* Added extra padding-top (60px) so the first link has breathing room */
+  padding: 60px 20px 30px 20px !important; 
+  
+  display: flex !important;
+  flex-direction: column !important;
+  
+  /* Full border and all rounded corners for the "floating panel" look */
+  border: 1px solid #E2E8F0 !important; 
+  border-radius: 30px !important; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03) !important;
+  
+  position: sticky !important; 
+  top: 20px !important; /* Matches the top margin */
+}
+
+/* --- MENUS --- */
+.fav-menu-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  flex: 1 !important; /* Pushes the bottom menu down */
+}
+
+.fav-bottom-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin-top: auto !important;
+}
+
+.fav-nav-link {
+  text-decoration: none !important;
+}
+
+/* --- MENU ITEMS --- */
+.fav-menu-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  padding: 15px 20px !important;
+  border-radius: 30px !important;
+  cursor: pointer !important;
+  background-color: transparent !important;
+  color: #194128 !important; /* Primary dark green */
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  transition: all 0.2s ease !important;
+}
+
+.fav-menu-item:hover {
+  background-color: #f7f9f8 !important; /* Very faint green for hover */
+}
+
+/* --- ACTIVE STATE --- */
+.fav-menu-item.active {
+  background-color: #FEF0ED !important; /* Light orange background */
+  color: #F0542E !important; /* Accent orange text/icon */
+  font-weight: 600 !important;
+}
+
+/* Specific fix for the logout button cursor */
+.logout-btn {
+  cursor: pointer !important;
+}

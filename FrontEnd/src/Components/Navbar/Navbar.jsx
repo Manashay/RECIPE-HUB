@@ -89,13 +89,13 @@ const Navbar = () => {
                   <Link to="/dashboard" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
                     <User size={15} /> Profile
                   </Link>
-                  <Link to="/dashboard/favourites" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Link to="/dashboard/favorites" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
                     <Heart size={15} /> Favourites
                   </Link>
-                  <Link to="/dashboard/shopping-list" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
-                    <ShoppingCart size={15} /> Shopping List
+                  <Link to="/dashboard/grocerylist" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                    <ShoppingCart size={15} /> Grocery List
                   </Link>
-                  <Link to="/dashboard/meal-planner" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Link to="/dashboard/mealplanner" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
                     <Calendar size={15} /> Meal Planner
                   </Link>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
                   {user.role === 'admin' && (
                     <>
                       <div className="dropdown-divider" />
-                      <Link to="/admin" className="dropdown-item dropdown-item-admin" onClick={() => setDropdownOpen(false)}>
+                      <Link to="/dashboard" className="dropdown-item dropdown-item-admin" onClick={() => setDropdownOpen(false)}>
                         Admin Panel
                       </Link>
                     </>

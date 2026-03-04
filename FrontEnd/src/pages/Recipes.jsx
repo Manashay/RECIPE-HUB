@@ -5,28 +5,45 @@ import RecipeCategories from '../Components/RecipesComp/Categories/RecipeCategor
 import PopularRecipes from '../Components/RecipesComp/PopularRecipes/PopularRecipes.jsx';
 import RecommendationSection from '../Components/RecipesComp/RecommendationSection/RecommendationSection.jsx';
 
-
 const Recipes = () => {
+    const [recipes, setRecipes] = useState([]);
 
-    const [recipes,setRecipes] =  useState([]);
-
-    useEffect( ()=>{
-        try{
-            (async ()=>{
+    useEffect(() => {
+        const fetchRecipes = async () => {
+            try {
                 let response = await axios.get('/api/recipes');
                 setRecipes(response.data);
-            })();
-        }catch(error){
-            console.log("Error Occured", error.message);
+            } catch (error) {
+                console.log("Error Occured", error.message);
+            }
+        };
+        fetchRecipes();
+    }, []);
+
+    // 1. ADD THIS FUNCTION: It talks to your DB and updates the local state
+    const handleToggleFavorite = async (recipeId, newFavState) => {
+        try {
+            // Update the database (Make sure this URL matches your Express route)
+            await axios.put(`/api/recipes/${recipeId}`, { isFavorite: newFavState });
+            
+            // Update the local state so the UI reacts instantly
+            setRecipes(prevRecipes => 
+                prevRecipes.map(recipe => 
+                    recipe._id === recipeId ? { ...recipe, isFavorite: newFavState } : recipe
+                )
+            );
+        } catch (error) {
+            console.error("Failed to update favorite status:", error);
         }
-    },[]);
+    };
 
     return (
         <div>
-            <RecipesHero></RecipesHero>
-            <RecipeCategories></RecipeCategories>
-            <PopularRecipes recipes={recipes} ></PopularRecipes>
-            <RecommendationSection recipes={recipes}></RecommendationSection>
+            <RecipesHero />
+            <RecipeCategories />
+            {/* 2. PASS THE FUNCTION DOWN AS A PROP */}
+            <PopularRecipes recipes={recipes} onToggleFavorite={handleToggleFavorite} />
+            <RecommendationSection recipes={recipes} onToggleFavorite={handleToggleFavorite} />
         </div>
     )
 }

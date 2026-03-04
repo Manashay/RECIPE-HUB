@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react"; // Added hooks
+import axios from "axios"; // Added axios
 import { useAuth } from "../Context/AuthContext.jsx";
 import { useNavigate, Link } from "react-router-dom";
 import { User, Heart, ShoppingCart, Calendar, LogOut, ChefHat, Leaf, ArrowRight } from "lucide-react";
@@ -7,13 +9,35 @@ export default function Dashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
+  // 1. ADD STATE FOR COUNTS
+  const [counts, setCounts] = useState({
+    favorites: 0,
+    shoppingList: 0,
+    mealPlanner: 0,
+    myRecipes: 0
+  });
+
+  // 2. FETCH DATA ON LOAD
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const response = await axios.get("/api/recipes/dashboard/counts");
+        setCounts(response.data);
+      } catch (error) {
+        console.error("Failed to load counts:", error);
+      }
+    };
+    fetchCounts();
+  }, []);
+
   const handleLogout = () => { logout(); navigate("/"); };
 
+  // 3. MAP THE STATE TO THE CARDS
   const cards = [
-    { icon: <Heart size={22} />, label: "Favourites", desc: "Recipes you've saved", color: "#fff0f0", accent: "#e53e3e", to: "/dashboard/favourites" },
-    { icon: <ShoppingCart size={22} />, label: "Shopping List", desc: "Ingredients to buy", color: "#f0f7ff", accent: "#3b82f6", to: "/dashboard/shopping-list" },
-    { icon: <Calendar size={22} />, label: "Meal Planner", desc: "Plan your week", color: "#f5f0ff", accent: "#7c6fef", to: "/dashboard/meal-planner" },
-    { icon: <ChefHat size={22} />, label: "My Recipes", desc: "Recipes you created", color: "#f0fff4", accent: "#194128", to: "/dashboard/my-recipes" },
+    { icon: <Heart size={22} />, label: "Favourites", count: counts.favorites, desc: "Recipes you've saved", color: "#fff0f0", accent: "#e53e3e", to: "/dashboard/favorites" },
+    { icon: <ShoppingCart size={22} />, label: "Shopping List", count: counts.shoppingList, desc: "Ingredients to buy", color: "#f0f7ff", accent: "#3b82f6", to: "/dashboard/grocerylist" },
+    { icon: <Calendar size={22} />, label: "Meal Planner", count: counts.mealPlanner, desc: "Plan your week", color: "#f5f0ff", accent: "#7c6fef", to: "/dashboard/mealplanner" },
+    { icon: <ChefHat size={22} />, label: "My Recipes", count: counts.myRecipes, desc: "Recipes you created", color: "#f0fff4", accent: "#194128", to: "/dashboard/my-recipes" },
   ];
 
   return (
@@ -49,7 +73,8 @@ export default function Dashboard() {
               <p className="dash-card-label">{card.label}</p>
               <p className="dash-card-desc">{card.desc}</p>
             </div>
-            <div className="dash-card-count">0</div>
+            {/* 4. UPDATED TO SHOW THE COUNT FROM STATE */}
+            <div className="dash-card-count">{card.count}</div>
             <ArrowRight size={16} className="dash-card-arrow" />
           </Link>
         ))}
@@ -67,19 +92,11 @@ export default function Dashboard() {
           <Link to="/recipes/add" className="dash-action-btn dash-action-primary" style={{ marginBottom: "16px" }}>
             <ChefHat size={16} /> Add New Recipe
           </Link>
-          <Link to="/admin" className="dash-admin-banner">
+          <Link to="/dashboard" className="dash-admin-banner">
             <span>⚡ You have admin access</span>
             <span className="dash-admin-link">Go to Admin Panel →</span>
           </Link>
         </>
-      )}
-
-      {/* Admin banner */}
-      {user?.role === "admin" && (
-        <Link to="/admin" className="dash-admin-banner">
-          <span>⚡ You have admin access</span>
-          <span className="dash-admin-link">Go to Admin Panel →</span>
-        </Link>
       )}
     </div>
   );
