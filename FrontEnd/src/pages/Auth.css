@@ -1,0 +1,203 @@
+/* ── Page wrapper ───────────────────────────── */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f9f7;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 16px;
+  }
+  
+  /* Decorative background blobs */
+  .auth-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .auth-blob-1 {
+    width: 400px; height: 400px;
+    background: #194128;
+    top: -100px; left: -100px;
+  }
+  .auth-blob-2 {
+    width: 300px; height: 300px;
+    background: #4caf7d;
+    bottom: -80px; right: -60px;
+  }
+  
+  /* ── Card ───────────────────────────────────── */
+  .auth-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 40px rgba(25, 65, 40, 0.10);
+    position: relative;
+    z-index: 1;
+    animation: authFadeUp 0.4s ease both;
+  }
+  
+  @keyframes authFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ── Logo ───────────────────────────────────── */
+  .auth-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    margin-bottom: 28px;
+  }
+  .auth-logo-icon {
+    width: 32px; height: 32px;
+    background: #194128;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .auth-logo span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #194128;
+  }
+  
+  /* ── Heading ────────────────────────────────── */
+  .auth-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 6px;
+  }
+  .auth-subtitle {
+    font-size: 0.875rem;
+    color: #888;
+    margin: 0 0 24px;
+  }
+  
+  /* ── Error ──────────────────────────────────── */
+  .auth-error {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    color: #c53030;
+  }
+  
+  /* ── Form ───────────────────────────────────── */
+  .auth-form { display: flex; flex-direction: column; gap: 18px; }
+  
+  .auth-field { display: flex; flex-direction: column; gap: 6px; }
+  .auth-field label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .auth-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .auth-input-icon {
+    position: absolute;
+    left: 12px;
+    color: #aaa;
+    pointer-events: none;
+  }
+  .auth-input-wrapper input {
+    width: 100%;
+    padding: 11px 40px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #222;
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .auth-input-wrapper input:focus {
+    border-color: #194128;
+    background: #fff;
+  }
+  .auth-eye {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+  }
+  .auth-eye:hover { color: #555; }
+  
+  /* ── Password strength ──────────────────────── */
+  .password-strength {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .strength-bar {
+    flex: 1;
+    height: 4px;
+    border-radius: 99px;
+    transition: background 0.3s, width 0.3s;
+  }
+  .strength-bar.weak   { background: #e53e3e; width: 33%; }
+  .strength-bar.medium { background: #f6ad55; width: 66%; }
+  .strength-bar.strong { background: #48bb78; width: 100%; }
+  .password-strength span { font-size: 0.75rem; color: #888; }
+  
+  /* ── Submit Button ──────────────────────────── */
+  .auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #194128;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .auth-btn:hover:not(:disabled) { background: #0f2919; }
+  .auth-btn:active:not(:disabled) { transform: scale(0.98); }
+  .auth-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  
+  /* ── Spinner ────────────────────────────────── */
+  .auth-spinner {
+    width: 18px; height: 18px;
+    border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  /* ── Switch link ────────────────────────────── */
+  .auth-switch {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    margin: 20px 0 0;
+  }
+  .auth-switch a {
+    color: #194128;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .auth-switch a:hover { text-decoration: underline; }

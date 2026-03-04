@@ -11,7 +11,7 @@ const IngredientsDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let response = await axios.get(`/api/recipeDetails/${id}`);
+        let response = await axios.get(`/api/recipes/${id}`);
         setRecipe(response.data);
       } catch (error) {
         console.log("Error Occured", error.message);
@@ -29,7 +29,8 @@ const IngredientsDetails = () => {
           <div className="column-header">
             <h2>Ingredients</h2>
             <div className="servings-selector">
-              {recipe?.servings} Serving <ChevronDown size={16} />
+              {recipe?.servings} Serving 
+              {/* <ChevronDown size={16} /> */}
             </div>
           </div>
 

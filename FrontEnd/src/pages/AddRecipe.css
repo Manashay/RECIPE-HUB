@@ -1,0 +1,52 @@
+/* ── Add Recipe — numbered list (ingredients & instructions) ── */
+.add-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .add-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fafafa;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .add-list-number {
+    background: #194128;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .add-list-number-step {
+    background: #4caf7d;
+    white-space: nowrap;
+  }
+  
+  .add-list-text {
+    flex: 1;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  .add-list-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    display: flex;
+    padding: 0;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .add-list-item button:hover { color: #e53e3e; }
