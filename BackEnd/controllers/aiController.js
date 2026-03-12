@@ -1,7 +1,6 @@
 import Groq from "groq-sdk";
 
 export const generateAiRecipe = async (req, res) => {
-  console.log("GROQ KEY:", process.env.GROQ_API_KEY);
   const { prompt } = req.body;
 
   if (!prompt) return res.status(400).json({ error: "Prompt is required" });

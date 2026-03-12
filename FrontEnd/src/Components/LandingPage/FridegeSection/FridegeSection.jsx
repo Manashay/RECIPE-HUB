@@ -22,7 +22,7 @@ const FridgeSection = ({ingredients}) => {
 
       <div className="fridge-actions">
         <button className="btn-view-more" onClick={()=> navigate('/ingredients',)}>View More</button>
-        <button className="btn-generate-main">Generate Recipe</button>
+        <button className="btn-generate-main" onClick={()=> navigate('/gen-ai-recipe')}>Generate Recipe</button>
       </div>
     </section>
   );

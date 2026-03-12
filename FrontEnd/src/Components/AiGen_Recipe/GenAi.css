@@ -365,6 +365,7 @@
   cursor: pointer;
   transition: all 0.2s;
   font-family: 'Poppins', sans-serif;
+  margin-bottom: 15px;
 }
 
 .try-another-btn:hover { background: var(--green); color: #fff; }
