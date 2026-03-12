@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const schema = mongoose.Schema;
 
 const fridgeSchema = new schema({
@@ -36,6 +36,4 @@ const fridgeSchema = new schema({
     }
 });
 
-const FridgeItem = mongoose.model('FridgeItem', fridgeSchema);
-
-module.exports = FridgeItem;
+export default mongoose.model('FridgeItem', fridgeSchema);

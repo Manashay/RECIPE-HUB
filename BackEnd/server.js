@@ -1,41 +1,45 @@
-require('dotenv').config();
-const express = require("express");
-const cors = require('cors');
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+import authRoutes from './routes/authRoutes.js';
+import recipeRoutes from './routes/recipeRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
+import FridgeItems from './models/FridegeSchema.js';
 
 const app = express();
 
 // ── Middleware ────────────────────────────────────────────────
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "http://localhost:5173" })); // ← Vite runs on 5173, not 3000
 app.use(express.json());
-
-// ── Models ────────────────────────────────────────────────────
-const FridgeItems = require('./models/FridegeSchema.js');
+app.disable('x-powered-by');
 
 // ── Routes ────────────────────────────────────────────────────
-app.use("/api/auth",    require("./routes/authRoutes"));
-app.use("/api/recipes", require("./routes/recipeRoutes"));  // 🆕 all recipe routes
+app.use("/api/auth", authRoutes);       // ← was aiRoutes, now fixed
+app.use("/api/recipes", recipeRoutes);
+app.use('/api', aiRoutes);
 
-// ── Ingredients (stays here since no separate router yet) ─────
+// ── Ingredients ───────────────────────────────────────────────
 app.get('/api/ingredients', async (req, res) => {
-    try {
-        const allIngredients = await FridgeItems.find({});
-        res.json(allIngredients);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
+  try {
+    const allIngredients = await FridgeItems.find({});
+    res.json(allIngredients);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 // ── Start Server ──────────────────────────────────────────────
 mongoose
-    .connect(process.env.MONGO_URL)
-    .then(() => {
-        console.log("MongoDB connected");
-        app.listen(process.env.PORT, () => {
-            console.log(`Server running on port ${process.env.PORT}`);
-        });
-    })
-    .catch((err) => {
-        console.error("MongoDB connection failed:", err.message);
-        process.exit(1);
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log("MongoDB connected");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server running on port ${process.env.PORT}`);
     });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection failed:", err.message);
+    process.exit(1);
+  });

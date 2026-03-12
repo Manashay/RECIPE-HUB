@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User.js");
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 // Verify JWT — attaches req.user
 const protect = async (req, res, next) => {
@@ -26,4 +26,4 @@ const restrictTo = (...roles) => (req, res, next) => {
   next();
 };
 
-module.exports = { protect, restrictTo };
+export { protect, restrictTo };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 import axios from 'axios';
 import {
   Clock, Users, Flame, Heart, Plus, Star,
@@ -31,6 +32,16 @@ const RecipeDetail = () => {
     fetchData();
   }, [id]);
 
+  const isValidUrl = (url) => {
+  if (!url || typeof url !== 'string') return false; // blocks null/undefined
+  try {
+    const parsed = new URL(url);
+    return ['http:', 'https:'].includes(parsed.protocol); // blocks javascript:, data:, etc.
+  } catch {
+    return false; // blocks malformed URLs
+  }
+};
+
   // 🆕 Delete handler
   const handleDelete = async () => {
     setDeleting(true);
@@ -51,7 +62,7 @@ const RecipeDetail = () => {
         <div className="recipe-visual-column">
           <div className="main-image-wrapper">
             <img
-              src={recipe?.imageUrl}
+              src={isValidUrl(recipe?.imageUrl) ? DOMPurify.sanitize(recipe.imageUrl) : ''}
               alt={recipe?.title}
               className="recipe-main-image"
             />
@@ -95,7 +106,7 @@ const RecipeDetail = () => {
         {/* Right Column */}
         <div className="recipe-info-column">
           <div className="tags-row">
-            {recipe?.tags.map((tag) => (
+            {recipe?.tags?.map((tag) => (
               <span key={tag} className="recipe-tag">{tag}</span>
             ))}
           </div>
@@ -124,7 +135,7 @@ const RecipeDetail = () => {
           </div>
 
           <div className="nutrition-grid">
-            {recipe?.nutrition.map((item, index) => (
+            {recipe?.nutrition?.map((item, index) => (
               <div key={index} className="nutrition-box">
                 <span className="nutri-label">{item.label}</span>
                 <span className="nutri-value">{item.value}</span>

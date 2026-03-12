@@ -58,7 +58,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <button className="btn btn-generate">Generate Recipe</button>
+          <button className="btn btn-generate" onClick={()=> navigate('/gen-ai-recipe')}>Generate Recipe</button>
         </div>
 
         {/* RIGHT: Auth */}

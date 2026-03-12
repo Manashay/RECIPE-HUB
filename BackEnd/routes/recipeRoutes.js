@@ -23,7 +23,24 @@ router.post("/", protect, restrictTo("admin"), async (req, res) => {
       res.status(500).json({ message: "Server error", error: err.message });
     }
   });
-  
+
+// GET search recipes by query
+router.get('/search', async (req, res) => {
+    try {
+        const { q } = req.query;
+        if (!q) return res.json([]);
+
+        const results = await RecipesData.find(
+            { name: { $regex: q, $options: 'i' } },
+            { name: 1, _id: 1 }  // ✅ Fix 1: only return name + _id, not entire document
+        ).limit(8); // ✅ Fix 2: cap results at 8 for dropdown
+
+        res.json(results);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // GET recipes by meal type
 router.get("/list", async (req, res) => {
     try {

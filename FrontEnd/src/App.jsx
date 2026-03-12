@@ -20,6 +20,7 @@ import ProtectedRoute from './Components/auth/ProtectedRoute.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx'; // user's saved recipes, profile, etc.
+import GenAiRecipe from './Components/AiGen_Recipe/GenAi.jsx'
 
 import DashboardLayout from './Components/UserComp/DashboardLayout.jsx';
 import Favorites from './Components/UserComp/Favorite/Favorites.jsx';
@@ -64,6 +65,7 @@ const router = createBrowserRouter([
       { path: "/recipes",     element: <ProtectedRoute><Recipes /></ProtectedRoute> },
       { path: "/features",    element: <ProtectedRoute><Features /></ProtectedRoute> },
       { path: "/about-us",    element: <ProtectedRoute><About /></ProtectedRoute> },
+      { path: "/gen-ai-recipe",    element: <ProtectedRoute><GenAiRecipe /></ProtectedRoute> },
       {
         path: "/recipes/edit/:id",
         element: <ProtectedRoute requiredRole="admin"><EditRecipe /></ProtectedRoute>
@@ -86,8 +88,6 @@ const router = createBrowserRouter([
           { path: "grocerylist", element: <GroceryList /> },
           { path: "mealplanner", element: <MealPlanner /> },
         ]
-
-
        },
 
       { path: "*", element: <Navigate to="/login" replace /> },  // 👈 unknown routes → login

@@ -1,13 +1,12 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 const generateToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
 
 const safeUser = (u) => ({ id: u._id, name: u.name, email: u.email, role: u.role });
 
-// POST /api/auth/register
-const register = async (req, res) => {
+export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
     if (await User.findOne({ email }))
@@ -20,8 +19,7 @@ const register = async (req, res) => {
   }
 };
 
-// POST /api/auth/login
-const login = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select("+password");
@@ -34,7 +32,4 @@ const login = async (req, res) => {
   }
 };
 
-// GET /api/auth/me
-const getMe = (req, res) => res.json({ user: safeUser(req.user) });
-
-module.exports = { register, login, getMe };
+export const getMe = (req, res) => res.json({ user: safeUser(req.user) });

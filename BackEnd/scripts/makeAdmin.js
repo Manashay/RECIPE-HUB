@@ -1,8 +1,8 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
-const User = require('../models/User');
+import 'dotenv/config';
+import mongoose from "mongoose";
+import User from '../models/User';
 
-const email = 'manashaychawre@gmail.com';   // the email you registered with
+const email = 'admin@gmail.com';   // the email you registered with
 
 mongoose.connect(process.env.MONGO_URL).then(async () => {
 

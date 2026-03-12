@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const schema = mongoose.Schema;
 
 const NutritionSchema = new mongoose.Schema({
@@ -61,6 +61,4 @@ const recipesSchema = new schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-const Recipe = mongoose.model("Recipe", recipesSchema);
-
-module.exports = Recipe;
+export default mongoose.model("Recipe", recipesSchema);
