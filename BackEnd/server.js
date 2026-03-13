@@ -11,7 +11,7 @@ import FridgeItems from './models/FridegeSchema.js';
 const app = express();
 
 // ── Middleware ────────────────────────────────────────────────
-app.use(cors({ origin: "http://localhost:5173" })); // ← Vite runs on 5173, not 3000
+app.use(cors({ origin: "http://localhost:5173",credentials: true, })); // ← Vite runs on 5173, not 3000
 app.use(express.json());
 app.disable('x-powered-by');
 

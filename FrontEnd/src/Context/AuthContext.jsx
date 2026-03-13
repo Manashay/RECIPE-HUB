@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
+
+axios.defaults.withCredentials = true;
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -9,21 +11,22 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    // if (token) {
+      // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       axios.get("/api/auth/me")
         .then(({ data }) => setUser(data.user))
-        .catch(logout)
+        // .catch(logout)
+        .catch(() => setUser(null)) // If no cookie or expired, user is null
         .finally(() => setLoading(false));
-    } else {
-      delete axios.defaults.headers.common["Authorization"];
-      setLoading(false);
-    }
-  }, [token]);
+    // } else {
+    //   delete axios.defaults.headers.common["Authorization"];
+    //   setLoading(false);
+    // }
+  }, []);
 
   const persist = (data) => {
-    localStorage.setItem("token", data.token);
-    setToken(data.token);
+    // localStorage.setItem("token", data.token);
+    // setToken(data.token);
     setUser(data.user);
   };
 
@@ -37,11 +40,15 @@ export const AuthProvider = ({ children }) => {
     persist(data);
   };
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setToken(null);
-    setUser(null);
-  };
+  const logout = async () => {
+  try {
+    await axios.post("/api/auth/logout"); // Hits your backend logout route
+  } catch (err) {
+    console.error("Logout failed", err);
+  } finally {
+    setUser(null); // Clear local state regardless
+  }
+};
 
   return (
     <AuthContext.Provider value={{ user, token, loading, register, login, logout }}>
