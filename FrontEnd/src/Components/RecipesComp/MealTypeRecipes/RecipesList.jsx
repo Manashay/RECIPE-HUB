@@ -15,7 +15,7 @@ const RecipesList = ({ recipes }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/recipes/list?mealType=${mealType}`); // ✅ Fix 1: match backend param name
+        const response = await axios.get(`/api/recipes/?mealType=${mealType}`); // ✅ Fix 1: match backend param name
         setRecipes(response.data); // ✅ Fix 2: extract data from axios response
       } catch (error) {
         console.log("Data not Found", error.message);

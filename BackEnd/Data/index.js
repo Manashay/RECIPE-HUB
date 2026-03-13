@@ -1,3 +1,4 @@
+require("dotenv").config({path: "../.env"});
 const mongoose = require("mongoose");
 const RecipesSchema = require("../models/recipes.js");
 const recipeData = require("./data.js");
@@ -18,7 +19,7 @@ main()
   .catch((err) => console.log(err.message));
 
 async function main(){
-    mongoose.connect('mongodb://127.0.0.1:27017/RecipeHub1');
+    mongoose.connect(process.env.MONGO_URL);
 };
 
 let insertData = async(obj)=>{

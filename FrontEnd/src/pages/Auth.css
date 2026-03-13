@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f7f9f7;
+    background: #F9F5EC;
     position: relative;
     overflow: hidden;
     padding: 40px 16px;
@@ -14,20 +14,20 @@
   .auth-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    /* filter: blur(80px); */
     opacity: 0.18;
     pointer-events: none;
   }
-  .auth-blob-1 {
+  /* .auth-blob-1 {
     width: 400px; height: 400px;
-    background: #194128;
+    background: #025321;
     top: -100px; left: -100px;
   }
   .auth-blob-2 {
     width: 300px; height: 300px;
-    background: #4caf7d;
+    background: #1fff8f;
     bottom: -80px; right: -60px;
-  }
+  } */
   
   /* ── Card ───────────────────────────────────── */
   .auth-card {

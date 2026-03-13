@@ -21,7 +21,7 @@ app.get('/api/ingredients', async (req, res) => {
     try {
         const allIngredients = await FridgeItems.find({});
         res.json(allIngredients);
-    } catch (err) {
+    } catch (err) { 
         res.status(500).json({ message: err.message });
     }
 });

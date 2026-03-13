@@ -5,7 +5,7 @@ import './RecipesHero.css';
 const RecipesHero = () => {
 
   // const [recipe, setRecipe] = useState('');
-  const popularTags = ['Vegan', 'Vegetarian', 'Pescatarian', 'Omnivore'];
+  const popularTags = ['Indian', 'Western', 'Healthy', 'Snacks'];
 
   return (
     <section className="recipes-hero-wrapper">

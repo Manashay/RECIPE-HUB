@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { ShoppingCart, ChevronDown, Play } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import './IngredientsDetails.css';
 import { useParams } from 'react-router-dom';
+import axios from 'axios'; // Don't forget to import axios!
 
 const IngredientsDetails = () => {
-
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let response = await axios.get(`/api/recipes/${id}`);
+        // Updated URL to match your backend route
+        const response = await axios.get(`/api/recipes/${id}`);
         setRecipe(response.data);
       } catch (error) {
         console.log("Error Occured", error.message);
       }
-    }
+    };
     fetchData();
-  },[]);
+  }, [id]); // Added id to dependency array for safety
+
+  if (!recipe) return <div className="loading">Loading details...</div>;
 
   return (
     <div className="details-section-container">
@@ -29,26 +32,21 @@ const IngredientsDetails = () => {
           <div className="column-header">
             <h2>Ingredients</h2>
             <div className="servings-selector">
-              {recipe?.servings} Serving 
-              {/* <ChevronDown size={16} /> */}
+              {recipe.servings} Servings
             </div>
           </div>
 
           <div className="ingredients-list">
-            {recipe?.ingredients.map((item) => (
-              <div key={item.id} className="ingredient-row">
+            {recipe.ingredients.map((ingredient, index) => (
+              <div key={index} className="ingredient-row">
                 <div className="ingredient-info">
-                  <div className="item-icon-box">?</div>
-                  <span className="item-name">{item.name}</span>
+                  {/* Displays the first letter of the ingredient as an icon */}
+                  <div className="item-icon-box">{}</div>
+                  <span className="item-name">{ingredient}</span>
                 </div>
                 <div className="ingredient-actions">
-                  <span className="item-qty">{item.quantity} {item.unit}</span>
                   <div className="cart-btn-wrapper">
-                    {/* Tooltip implementation */}
-                    <span className="tooltip">
-                      {item.added ? "Remove from shopping list" : "Add to shopping list"}
-                    </span>
-                    <button className={`cart-icon-btn ${item.added ? 'active' : ''}`}>
+                    <button className="cart-icon-btn">
                       <ShoppingCart size={16} />
                     </button>
                   </div>
@@ -58,40 +56,22 @@ const IngredientsDetails = () => {
           </div>
 
           <button className="add-all-btn">
-            Add all ingredients to shopping list <ShoppingCart size={18} />
+            Add all to shopping list <ShoppingCart size={18} />
           </button>
         </div>
 
         {/* Right Column: Method */}
         <div className="method-column">
           <h2 className="method-title">Method</h2>
-
-          {/* <div className="video-placeholder">
-            <img
-              src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1000&auto=format&fit=crop"
-              alt="Video thumbnail"
-            />
-            <div className="video-overlay">
-              <span>Eggs benedict video instructions</span>
-              <div className="play-btn-circle">
-                <Play size={24} fill="currentColor" />
-              </div>
-            </div>
-          </div> */}
-
           <div className="preparation-steps">
-            <h3>To prepare:</h3>
+            <h3>Instructions:</h3>
 
-            <div className="step-item">
-              {recipe?.instructions.map((step) => (
-                <>
-                  <div className="step-badge">Step {step.stepNumber}</div>
-                  <p>
-                    {step.text}
-                  </p>
-                </>
-              ))}
-            </div>
+            {recipe.instructions.map((step) => (
+              <div className="step-item" key={step.stepNumber}>
+                <div className="step-badge">Step {step.stepNumber}</div>
+                <p className="step-text">{step.text}</p>
+              </div>
+            ))}
           </div>
         </div>
 

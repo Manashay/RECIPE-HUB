@@ -23,19 +23,26 @@ const recipesSchema = new schema({
         required: [ true, 'Recipe title is Required'],
         trim: true
     },
+    sourceId: {
+        type: String,
+        unique: true,
+        sparse: true
+    },
     description: {
         type: String,
         required: true
     },
     imageUrl: {
         type: String,
-        default: 'https://images.unsplash.com/photo-1600335895229-6e75511892c8',
+        default: 'https://images.unsplash.com/photo-1600335895229-6e75511892c8?w=500&q=80',
     },
     prepTime: { type: String, default: '0 min' },
     servings: { type: Number, default: 1 },
     calories: { type: Number, default: 0 },
 
-    ingredients: [IngredientSchema],
+    ingredients: [{
+        type: String
+    }],
 
     tags: [{
         type: String
