@@ -4,7 +4,7 @@ import User from "../models/User.js";
 // Verify JWT — attaches req.user
 const protect = async (req, res, next) => {
   try {
-    const token = req.cookies.jwt;
+    let token = req.cookies.token;
     if (req.headers.authorization?.startsWith("Bearer"))
       token = req.headers.authorization.split(" ")[1];
 

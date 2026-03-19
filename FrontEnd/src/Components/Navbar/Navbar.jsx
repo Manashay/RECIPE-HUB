@@ -40,7 +40,7 @@ const Navbar = () => {
               <Leaf size={24} fill="#194128" strokeWidth={0} />
             </div>
             <span className="brand-text">
-              <Link to="/">YumYard</Link>
+              <Link to="/">RecipeHub</Link>
             </span>
           </div>
         </div>

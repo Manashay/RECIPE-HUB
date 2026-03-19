@@ -25,7 +25,7 @@ const Footer = () => {
             <div className="d-flex logo-rotate">
                <Leaf size={28} color="#194128" fill="#194128" strokeWidth={0} />
             </div>
-            <span className="brand-text"><a href='/'>Yum Yard</a></span>
+            <span className="brand-text"><a href='/'>RecipeHub</a></span>
           </div>
         </div>
 
@@ -59,15 +59,15 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="col-lg-4 col-md-12 d-flex justify-content-lg-end gap-3">
+          {/* <div className="col-lg-4 col-md-12 d-flex justify-content-lg-end gap-3">
             <button className="btn btn-outline-custom">Login</button>
             <button className="btn btn-outline-custom">Generate Recipe</button>
-          </div>
+          </div> */}
         </div>
 
         {/* 4. BOTTOM ROW: Copyright */}
         <div className="footer-copyright d-flex justify-content-between flex-wrap">
-           <span>© 2023 Meal Zeroes. All rights reserved</span>
+           <span>© 2023 RecipeHub. All rights reserved</span>
            <span>Designed by FineDev</span>
         </div>
 

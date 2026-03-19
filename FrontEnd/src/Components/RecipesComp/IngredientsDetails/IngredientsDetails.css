@@ -152,6 +152,7 @@
   gap: 12px;
   cursor: pointer;
   transition: 0.2s;
+  margin-top: 15px;
 }
 
 .add-all-btn:hover {

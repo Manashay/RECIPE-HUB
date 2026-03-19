@@ -5,7 +5,7 @@ import './RecipesHero.css';
 const RecipesHero = () => {
 
   // const [recipe, setRecipe] = useState('');
-  const popularTags = ['Vegan', 'Vegetarian', 'Pescatarian', 'Omnivore'];
+  const popularTags = ['Indian', 'Western', 'Healthy', 'Snacks'];
 
   return (
     <section className="recipes-hero-wrapper">
@@ -13,7 +13,7 @@ const RecipesHero = () => {
         
         {/* Title Content */}
         <h1 className="recipes-hero-title">
-          Explore Over 50,000+ Unique Low-Carb and Keto Recipes
+          Explore Over 50,000+ Unique Low-Carb Recipes
         </h1>
 
         {/* Search Bar */}

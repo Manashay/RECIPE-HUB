@@ -1,8 +1,9 @@
-const express = require("express");
+import express from "express";
+import mongoose from "mongoose";
+import RecipesData from "../models/recipes.js";
+import { protect, restrictTo } from "../middleware/authMiddleware.js";
+
 const router = express.Router();
-const mongoose = require("mongoose");
-const RecipesData = require("../models/recipes.js");
-const { protect, restrictTo } = require("../middleware/authMiddleware");
 
 // GET all recipes
 router.get("/", async (req, res) => {
@@ -136,4 +137,4 @@ router.get("/dashboard/counts", async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

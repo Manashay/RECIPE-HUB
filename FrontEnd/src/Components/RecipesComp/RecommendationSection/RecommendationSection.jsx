@@ -11,7 +11,7 @@ const RecommendationSection = ({ recipes, onToggleFavorite }) => {
         <h2 className="recommendation-title">You Might Also Like</h2>
         
         <div className="recommendation-grid">
-          {recipes.slice(0,9).map((item) => (
+          {recipes.slice(10,80).map((item) => (
             <RecipeCards  
               key={item._id} 
               item={item}

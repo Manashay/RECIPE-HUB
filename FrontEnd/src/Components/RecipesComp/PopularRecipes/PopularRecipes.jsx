@@ -8,7 +8,7 @@ const RecommendationSection = ({ recipes, onToggleFavorite }) => {
   return (
     <section className="recommendation-section">
       <div className="recommendation-container">
-        <h2 className="recommendation-title">You Might Also Like</h2>
+        <h2 className="recommendation-title">Popular Recipes</h2>
         
         <div className="recommendation-grid">
           {recipes.slice(0,9).map((item) => (

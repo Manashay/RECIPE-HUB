@@ -7,12 +7,20 @@ const sendTokenResponse = (user, statusCode, res) => {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
+  const parseDuration = (str) => {
+    const units = { s: 1, m: 60, h: 3600, d: 86400 };
+    const match = str.match(/^(\d+)([smhd])$/);
+    return match
+      ? parseInt(match[1]) * units[match[2]] * 1000
+      : 24 * 3600 * 1000;
+  };
+
   const cookieOptions = {
     // Converts "30d" or "1d" style strings to milliseconds
-    expires: new Date(Date.now() + 24 * 60 * 60 * 1000), 
+    expires: new Date(Date.now() + parseDuration(process.env.JWT_EXPIRES_IN)),
     httpOnly: true, // Shields token from XSS
     secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax", 
+    sameSite: "Lax",
   };
 
   res
@@ -20,7 +28,12 @@ const sendTokenResponse = (user, statusCode, res) => {
     .cookie("token", token, cookieOptions)
     .json({
       success: true,
-      user: { id: user._id, name: user.name, email: user.email, role: user.role },
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
     });
 };
 

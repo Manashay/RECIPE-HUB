@@ -38,7 +38,7 @@ const IngredientsDetails = () => {
             {recipe?.ingredients.map((item) => (
               <div key={item.id} className="ingredient-row">
                 <div className="ingredient-info">
-                  <div className="item-icon-box">?</div>
+                  <div className="item-icon-box"><i class="fa-solid fa-utensils"></i></div>
                   <span className="item-name">{item.name}</span>
                 </div>
                 <div className="ingredient-actions">

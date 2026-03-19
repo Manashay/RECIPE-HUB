@@ -7,12 +7,14 @@ import authRoutes from './routes/authRoutes.js';
 import recipeRoutes from './routes/recipeRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 import FridgeItems from './models/FridegeSchema.js';
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 // ── Middleware ────────────────────────────────────────────────
 app.use(cors({ origin: "http://localhost:5173",credentials: true, })); // ← Vite runs on 5173, not 3000
 app.use(express.json());
+app.use(cookieParser()); // ← without this, req.cookies is always undefined
 app.disable('x-powered-by');
 
 // ── Routes ────────────────────────────────────────────────────
