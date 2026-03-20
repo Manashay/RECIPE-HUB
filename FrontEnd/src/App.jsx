@@ -18,7 +18,7 @@ import AddRecipe from './pages/AddRecipe.jsx';
 
 // Auth imports
 import { AuthProvider, useAuth } from './Context/AuthContext.jsx';
-import ProtectedRoute from './Components/auth/ProtectedRoute.jsx';
+import ProtectedRoute from './Components/Auth/ProtectedRoute.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx'; 
