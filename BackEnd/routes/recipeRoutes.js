@@ -26,19 +26,29 @@ router.post("/", protect, restrictTo("admin"), async (req, res) => {
   });
 
 // GET search recipes by query
-router.get('/search', async (req, res) => {
+// ==========================================
+// 🔍 GET Search recipes by title or tags
+// MUST BE ABOVE router.get("/:id") !!!
+// ==========================================
+router.get("/search", async (req, res) => {
     try {
-        const { q } = req.query;
-        if (!q) return res.json([]);
+        const searchQuery = req.query.q;
 
-        const results = await RecipesData.find(
-            { name: { $regex: q, $options: 'i' } },
-            { name: 1, _id: 1 }  // ✅ Fix 1: only return name + _id, not entire document
-        ).limit(8); // ✅ Fix 2: cap results at 8 for dropdown
+        if (!searchQuery) {
+            return res.status(200).json([]);
+        }
 
-        res.json(results);
+        // Search MongoDB for matching titles OR matching tags (case-insensitive)
+        const matchingRecipes = await RecipesData.find({
+            $or: [
+                { title: { $regex: searchQuery, $options: "i" } },
+                { tags: { $regex: searchQuery, $options: "i" } }
+            ]
+        });
+
+        res.status(200).json(matchingRecipes);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: "Server error during search" });
     }
 });
 
