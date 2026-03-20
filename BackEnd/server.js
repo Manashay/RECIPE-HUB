@@ -13,7 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  ""
+  "https://recipehub-backend-53k8.onrender.com"
 ]
 
 // ── Middleware ────────────────────────────────────────────────
