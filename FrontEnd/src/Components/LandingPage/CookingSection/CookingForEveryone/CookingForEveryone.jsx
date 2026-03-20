@@ -21,7 +21,7 @@ const YumYard = () => {
             <div className="content-container">
               <h2 className="main-title">Cooking for everyone</h2>
               <p className="description">
-                Yum Yard isn't just another recipe site. Our community-driven features make it simple and fun for everyone to master the kitchen.
+                RecipeHub isn't just another recipe site. Our community-driven features make it simple and fun for everyone to master the kitchen.
               </p>
 
               <div className="feature-list">

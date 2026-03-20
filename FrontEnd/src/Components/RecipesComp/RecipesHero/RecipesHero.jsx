@@ -20,6 +20,7 @@ const RecipesHero = () => {
       if (searchTerm.trim().length > 1) {
         try {
           const response = await axios.get(`/api/recipes/search?q=${searchTerm}`);
+          console.log(response.data);
           setSuggestions(response.data);
           setShowDropdown(true);
         } catch (error) {

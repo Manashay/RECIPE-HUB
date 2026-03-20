@@ -23,24 +23,24 @@ const CompanyCulture = () => {
   };
 
   const listItems = [
-    "We're a 100% remote-first team",
-    "We currently have 34 team members",
-    "We're culturally and geographically diverse",
-    "Supporting our team members is a top priority"
+    "A core team of 3 BCCA students",
+    "Focused on high-speed AI inference",
+    "Built with modern full-stack tools",
+    "Practical learning is our top priority"
   ];
 
   return (
     <section className="culture-section">
       <div className="container">
-        <h2 className="culture-main-title">Our Company Culture</h2>
+        <h2 className="culture-main-title">Our Project Team</h2>
 
         <div className="row align-items-center">
           {/* LEFT CONTENT */}
           <div className="col-lg-6 mb-5 mb-lg-0">
             <div className="culture-left-content">
-              <h3 className="culture-subtitle">MealZeroes is one of a kind!</h3>
+              <h3 className="culture-subtitle">RecipeHub is student-powered!</h3>
               <p className="culture-description">
-                MealZeroes is one of a kind! We enjoy flexible working hours, online and offline get-togethers, dropping the perfect meme in Slack, and sharing our own passions for health and wellness.
+                RecipeHub is the result of our shared curiosity and many late-night coding sessions. We thrive on solving MERN stack challenges, optimizing Groq AI prompts, and turning a simple idea into a high-performance recipe hub for our final year BCCA project.
               </p>
 
               <div className="culture-pill-list">

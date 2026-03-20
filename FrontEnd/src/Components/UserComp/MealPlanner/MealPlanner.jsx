@@ -135,7 +135,7 @@ const MealPlanner = () => {
                 <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" fill="#F9F5EC"/>
               </svg>
             </div>
-            <h2 className="mp-logo-text">Meal Zeroes</h2>
+            <h2 className="mp-logo-text">RecipeHub</h2>
           </div>
 
           <div className="mp-menu-group">

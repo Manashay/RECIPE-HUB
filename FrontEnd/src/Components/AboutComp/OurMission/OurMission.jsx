@@ -11,24 +11,24 @@ const OurMission = () => {
 
   const statsData = [
     {
-      number: "10,000",
-      label: "Recipes",
-      desc: "Explore a vast collection of more than 10,000 meticulously curated recipes, ensuring a diverse range of culinary options for every taste and occasion."
+      number: "Instant",
+      label: "Groq AI",
+      desc: "Experience the future of AI with near-zero latency. RecipeHub uses Groq’s LPU technology to generate complete, structured recipes in the blink of an eye—no waiting, just cooking."
     },
     {
-      number: "70%",
-      label: "Less Food Waste",
-      desc: "Our platform has contributed to a remarkable 70% reduction in food waste, ensuring ingredients are used thoughtfully and sustainably."
+      number: "Smart",
+      label: "Search",
+      desc: "Our optimized MERN backend matches your available ingredients with massive culinary datasets. This ensures you cook what you have, reducing waste and simplifying your kitchen routine."
     },
     {
-      number: "200+",
-      label: "Cuisines",
-      desc: "Explore a world of flavors with access to over 200 cuisines, providing culinary inspiration that keeps your taste buds delighted."
+      number: "Global",
+      label: "Flavors",
+      desc: "Explore a world of taste with an AI that understands thousands of regional cuisines. From local Indian traditions to international delicacies, the variety is truly limitless."
     }
   ];
 
   return (
-    <section className="mission-section">
+    <section id='target-ourMission-section' className="mission-section">
       {/* Floating Decor (Top Left) */}
       <div className="decor-container d-none d-lg-block">
         <img 
@@ -52,20 +52,20 @@ const OurMission = () => {
       </div>
 
       <div className="container">
-        <h2 className="mission-header-title">Our Mission</h2>
+        <h2 className="mission-header-title">Our Mission: The RecipeHub Vision</h2>
 
         {/* --- TOP ROW --- */}
         <div className="row align-items-center">
           <div className="col-lg-5 mb-5 mb-lg-0">
             <div className="mission-text-content">
               <p className="mission-paragraph">
-                We know that managing your health and fitness can feel like a full-time job. That's why we created MealZeroes to provide you with the tools to support you for a lifetime of lasting health.
+                Staring at a half-empty fridge shouldn't be a source of stress. We developed RecipeHub to bridge the gap between "What's for dinner?" and a gourmet meal using cutting-edge inference technology.
               </p>
               <p className="mission-paragraph">
-                Our focus is providing real support to users living conscious lifestyles focused on healthy, delicious, whole foods. We supply you with chef-created recipes, meal plans, educational content from health experts, and an engaging community so you can keep it simple, while enjoying your life!
+                Our focus is to provide a lightning-fast platform for home cooks. By integrating Groq AI, we offer near-instant recipe generation based on your available ingredients. We believe that speed and intelligence can transform the kitchen from a place of chores into a hub of discovery.
               </p>
               <p className="mission-paragraph">
-                Since our start in 2010, we have expanded to be one of the top food tracking apps, with 15M downloads and a growing community of users taking interest and responsibility for their health.
+                What started as a BCCA technical project in 2026 is now a proof-of-concept for the future of cooking. We are dedicated to showing how high-performance AI can help everyone take the lead in their own culinary adventures.
               </p>
             </div>
           </div>

@@ -35,7 +35,7 @@ const KetoSection = () => {
           <img src={assets.avocado} className="floating-asset" style={{ top: '85%', right: '-8%', width: '90px', transform: '--rotation', animationDelay: '0.5s' }} alt="" />
         </div>
 
-        <h2 className="main-title">Explore the World of Flavors at Yum Yard</h2>
+        <h2 className="main-title">Explore the World of Flavors at RecipeHub</h2>
 
         <div className="row align-items-center">
           {/* LEFT: Vertical Collage */}
@@ -60,7 +60,7 @@ const KetoSection = () => {
             <div className="content-container">
               <h3 className="sub-title">Find Your Next Favorite Meal</h3>
               <p className="description">
-                We’re more than just a recipe list. Yum Yard is your ultimate culinary hub, offering a curated collection of thousands of dishes. Whether you’re a beginner or a pro, our platform helps you:
+                We’re more than just a recipe list. RecipeHub is your ultimate culinary hub, offering a curated collection of thousands of dishes. Whether you’re a beginner or a pro, our platform helps you:
               </p>
               <div className="feature-grid">
                 {features.map((item, index) => (

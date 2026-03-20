@@ -36,7 +36,7 @@ const FoodWasteSection = () => {
         {/* HEADER */}
         <div className="waste-header-container">
           <h2 className="waste-title">
-            Let MealZeroes Think For You.<br />
+            Let RecipeHub Think For You.<br />
             Save thousands of dollars and<br />
             reduce food waste.
           </h2>

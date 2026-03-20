@@ -60,7 +60,7 @@ export default function Dashboard() {
       {/* Info */}
       <div className="dash-info-row">
         <div className="dash-info-item"><User size={14} /><span>{user?.email}</span></div>
-        <div className="dash-info-item"><Leaf size={14} /><span>YumYard Member</span></div>
+        <div className="dash-info-item"><Leaf size={14} /><span>RecipeHub Member</span></div>
       </div>
 
       {/* Cards */}
