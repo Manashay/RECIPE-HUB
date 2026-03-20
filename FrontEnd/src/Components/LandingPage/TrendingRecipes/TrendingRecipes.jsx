@@ -4,7 +4,7 @@ import './TrendingRecipes.css';
 import breakfast from '../../../assets/breakfast.jpg';
 import lunch from '../../../assets/lunch.png';
 import dinner from '../../../assets/dinner.png';
-import snacks from '../../../assets/snacks.jpeg';
+import snacks from '../../../assets/Snacks.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 
