@@ -1,4 +1,8 @@
 // import './App.css';
+import axios from 'axios';
+
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
+
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Recipes from './pages/Recipes.jsx';
@@ -92,7 +96,7 @@ const router = createBrowserRouter([
 
       { path: "*", element: <Navigate to="/login" replace /> },  // 👈 unknown routes → login
 
-      {path: "/dashboard/favorites", element:<ProtectedRoute><Favorites /></ProtectedRoute>},
+      // {path: "/dashboard/favorites", element:<ProtectedRoute><Favorites /></ProtectedRoute>},
     ]
   }
 ]);
