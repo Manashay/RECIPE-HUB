@@ -35,31 +35,33 @@
 
 /* ── Hero Section ─────────────────────────────────────────── */
 .hero-section-recipe-ai {
-  background: linear-gradient(135deg, var(--green) 0%, #2d6b47 100%);
-  padding: 52px 40px 60px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(135deg, var(--green) 0%, #2d6b47 100%) !important;
+  padding: 52px 40px 60px !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important ;
 }
 
 .hero-circle-top {
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 200px;
-  height: 200px;
-  background: rgba(236, 88, 51, 0.15);
-  border-radius: 50%;
+  position: absolute !important;
+  top: -30px !important;
+  right: -30px !important;
+  width: 200px !important;
+  height: 200px !important;
+  background: rgba(236, 88, 51, 0.15) !important;
+  border-radius: 50% !important;
+  filter: blur(20px);
 }
 
 .hero-circle-bottom {
-  position: absolute;
-  bottom: -50px;
-  left: -20px;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
+  position: absolute !important;
+  bottom: -50px !important;
+  left: -20px !important;
+  width: 150px !important;
+  height: 150px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 50% !important;
+  filter: blur(20px);
 }
 
 .hero-badge {
@@ -73,66 +75,66 @@
   margin-bottom: 16px;
 }
 
-.hero-title {
-  color: #fff;
-  font-size: 38px;
-  font-weight: 800;
-  margin: 0 0 12px;
-  letter-spacing: -1px;
-  line-height: 1.2;
+h1.hero-titleGen {
+  color: #fff !important;
+  font-size: 38px !important;
+  font-weight: 800 !important;
+  margin: 0 0 12px !important;
+  letter-spacing: -1px !important;
+  line-height: 1.2 !important;
 }
 
 .hero-title span { color: var(--cinnabar); }
 
-.hero-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 15px;
-  margin: 0 auto 36px;
-  max-width: 500px;
+p.hero-subtitleGen {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 15px !important;
+  margin: 0 auto 36px !important;
+  max-width: 500px !important;
 }
 
 /* ── Input Area ───────────────────────────────────────────── */
 .input-wrapper {
-  max-width: 640px;
-  margin: 0 auto;
-  position: relative;
+  max-width: 640px !important;
+  margin: 0 auto !important;
+  position: relative !important;
 }
 
 .recipe-textarea {
-  width: 100%;
-  padding: 18px 20px;
-  border-radius: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.95);
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  resize: none;
-  box-sizing: border-box;
-  color: #333;
-  transition: all 0.2s;
+  width: 100% !important;
+  padding: 18px 20px !important;
+  border-radius: 16px !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  font-size: 15px !important;
+  font-family: 'Poppins', sans-serif !important;
+  resize: none !important;
+  box-sizing: border-box !important;
+  color: #333 !important;
+  transition: all 0.2s !important;
 }
 
 .recipe-textarea:focus {
-  outline: none;
-  border-color: var(--cinnabar);
-  box-shadow: 0 0 0 3px rgba(236, 88, 51, 0.15);
+  outline: none !important;
+  border-color: var(--cinnabar) !important;
+  box-shadow: 0 0 0 3px rgba(236, 88, 51, 0.15) !important;
 }
 
 .gen-btn {
-  margin: 12px auto 0;
-  background: var(--cinnabar);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 36px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Poppins', sans-serif;
+  margin: 12px auto 0 !important;
+  background: var(--cinnabar) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px 36px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .gen-btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(236, 88, 51, 0.4); }

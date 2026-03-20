@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .recipes-hero-title {
@@ -121,4 +121,69 @@
   .recipes-hero-card {
     padding: 40px 20px;
   }
+}
+
+/* --- Autocomplete Dropdown Styles --- */
+.search-dropdown {
+  position: absolute;
+  top: 110%; /* Floats right below the search bar */
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s ease;
+  color: #2d3748;
+}
+
+.suggestion-item:last-child { border-bottom: none; }
+.suggestion-item:hover { background-color: #f7fafc; }
+
+.suggestion-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.suggestion-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.suggestion-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.suggestion-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.suggestion-no-results {
+  padding: 20px;
+  color: #718096;
+  text-align: center;
+  font-style: italic;
 }

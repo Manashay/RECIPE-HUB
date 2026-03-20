@@ -44,12 +44,12 @@ const generateRecipe = async () => {
 
         <div className="hero-badge">✨ Powered by Groq AI</div>
 
-        <h1 className="hero-title">
+        <h1 className="hero-titleGen">
           Describe Your Perfect<br />
           <span>Recipe</span>
         </h1>
 
-        <p className="hero-subtitle">
+        <p className="hero-subtitleGen">
           Tell us what you're craving, what's in your fridge, or any dietary
           preference — we'll craft the perfect recipe and find the best tutorials.
         </p>
