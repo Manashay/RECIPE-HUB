@@ -1,7 +1,4 @@
-import axios from 'axios';
-
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
-
+// import './App.css';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Recipes from './pages/Recipes.jsx';
@@ -12,19 +9,19 @@ import Footer from './Components/Footer/footer.jsx';
 import { createBrowserRouter, Outlet, RouterProvider, Navigate } from 'react-router-dom';
 import ScrollToTop from './Components/Helper/ScrollToTop.jsx';
 import RecipeDetail from './Components/RecipesComp/RecipeDetails/RecipeDetails.jsx';
+import IngredientsDetails from './Components/RecipesComp/IngredientsDetails/IngredientsDetails.jsx';
 import RecipesList from './Components/RecipesComp/MealTypeRecipes/RecipesList.jsx';
 import EditRecipe from './pages/EditRecipe.jsx';
 import AddRecipe from './pages/AddRecipe.jsx';
 
-// Auth imports
-import { AuthProvider, useAuth } from './Context/AuthContext.jsx';
-import ProtectedRoute from './Components/Auth/ProtectedRoute.jsx';
+// 🆕 Auth imports
+import { AuthProvider, useAuth  } from './Context/AuthContext.jsx';
+import ProtectedRoute from './Components/auth/ProtectedRoute.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
-import Dashboard from './pages/Dashboard.jsx'; 
+import Dashboard from './pages/Dashboard.jsx'; // user's saved recipes, profile, etc.
 import GenAiRecipe from './Components/AiGen_Recipe/GenAi.jsx'
 
-// Dashboard imports
 import DashboardLayout from './Components/UserComp/DashboardLayout.jsx';
 import Favorites from './Components/UserComp/Favorite/Favorites.jsx';
 import GroceryList from './Components/UserComp/Grocery/GroceryList.jsx';
@@ -43,13 +40,15 @@ function Layout() {
   );
 }
 
-// Redirect already-logged-in users away from /login and /register
+// 🆕 Redirect already-logged-in users away from /login and /register
 function GuestRoute({ children }) {
   const { user, loading } = useAuth();
   if (loading) return <div>Loading...</div>;
   if (user) return <Navigate to="/" replace />;
   return children;
 }
+
+// App.jsx
 
 const router = createBrowserRouter([
   {
@@ -66,12 +65,7 @@ const router = createBrowserRouter([
       { path: "/recipes",     element: <ProtectedRoute><Recipes /></ProtectedRoute> },
       { path: "/features",    element: <ProtectedRoute><Features /></ProtectedRoute> },
       { path: "/about-us",    element: <ProtectedRoute><About /></ProtectedRoute> },
-      { path: "/gen-ai-recipe", element: <ProtectedRoute><GenAiRecipe /></ProtectedRoute> },
-      { path: "/recipes/:mealType", element: <ProtectedRoute><RecipesList /></ProtectedRoute> },
-      
-      // ✅ FIX 1: Removed IngredientsDetails from the router
-      { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /></ProtectedRoute> },
-      
+      { path: "/gen-ai-recipe",    element: <ProtectedRoute><GenAiRecipe /></ProtectedRoute> },
       {
         path: "/recipes/edit/:id",
         element: <ProtectedRoute requiredRole="admin"><EditRecipe /></ProtectedRoute>
@@ -81,28 +75,31 @@ const router = createBrowserRouter([
         element: <ProtectedRoute requiredRole="admin"><AddRecipe /></ProtectedRoute>
       },
 
-      // Nested Dashboard Routes
-      { 
-        path: "/dashboard", 
-        element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
+      { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /><IngredientsDetails /></ProtectedRoute> },
+      { path: "/recipes/:mealType", element: <ProtectedRoute><RecipesList /></ProtectedRoute> },
+
+      { path: "/dashboard", element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
         children: [
+          // The empty path "" means this loads at exactly "/dashboard"
           { path: "", element: <Dashboard /> }, 
+          // This loads at "/dashboard/favorites"
           { path: "favorites", element: <Favorites /> },
+          // You can add your future routes here easily:
           { path: "grocerylist", element: <GroceryList /> },
           { path: "mealplanner", element: <MealPlanner /> },
         ]
        },
 
-      // Unknown routes → redirect to login
-      { path: "*", element: <Navigate to="/login" replace /> }, 
-      
-      // ✅ FIX 2: Deleted the duplicate /dashboard/favorites route that was down here!
+      { path: "*", element: <Navigate to="/login" replace /> },  // 👈 unknown routes → login
+
+      {path: "/dashboard/favorites", element:<ProtectedRoute><Favorites /></ProtectedRoute>},
     ]
   }
 ]);
 
 function App() {
   return (
+    // 🆕 Wrap everything in AuthProvider so ALL components can access auth state
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
