@@ -3,22 +3,22 @@ import { ShoppingCart, ChevronDown, Play } from 'lucide-react';
 import './IngredientsDetails.css';
 import { useParams } from 'react-router-dom';
 
-const IngredientsDetails = () => {
+const IngredientsDetails = ({recipe}) => {
 
-  const { id } = useParams();
-  const [recipe, setRecipe] = useState(null);
+//   const { id } = useParams();
+//   const [recipe, setRecipe] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let response = await axios.get(`/api/recipes/${id}`);
-        setRecipe(response.data);
-      } catch (error) {
-        console.log("Error Occured", error.message);
-      }
-    }
-    fetchData();
-  },[]);
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         let response = await axios.get(`/api/recipes/${id}`);
+//         setRecipe(response.data);
+//       } catch (error) {
+//         console.log("Error Occured", error.message);
+//       }
+//     }
+//     fetchData();
+//   },[]);
 
   return (
     <div className="details-section-container">

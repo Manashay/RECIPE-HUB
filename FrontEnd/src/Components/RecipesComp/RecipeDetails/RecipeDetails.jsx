@@ -189,7 +189,7 @@ const RecipeDetail = () => {
         </div>
       )}
       </section>
-      <IngredientsDetails/>
+      <IngredientsDetails recipe={recipe}/>
       </>
   );
 };
