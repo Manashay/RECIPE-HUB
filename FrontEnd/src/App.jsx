@@ -12,7 +12,6 @@ import Footer from './Components/Footer/footer.jsx';
 import { createBrowserRouter, Outlet, RouterProvider, Navigate } from 'react-router-dom';
 import ScrollToTop from './Components/Helper/ScrollToTop.jsx';
 import RecipeDetail from './Components/RecipesComp/RecipeDetails/RecipeDetails.jsx';
-import IngredientsDetails from './Components/RecipesComp/IngredientsDetails/IngredientsDetails.jsx';
 import RecipesList from './Components/RecipesComp/MealTypeRecipes/RecipesList.jsx';
 import EditRecipe from './pages/EditRecipe.jsx';
 import AddRecipe from './pages/AddRecipe.jsx';
@@ -71,7 +70,6 @@ const router = createBrowserRouter([
       { path: "/recipes/:mealType", element: <ProtectedRoute><RecipesList /></ProtectedRoute> },
       
       // ✅ FIX 1: Removed IngredientsDetails from the router
-      { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /><IngredientsDetails /></ProtectedRoute> },
       { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /></ProtectedRoute> },
       
       {

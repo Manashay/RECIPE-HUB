@@ -11,6 +11,7 @@ import {
 import './RecipeDetails.css';
 import RatingStars from '../../Helper/RatingStars';
 import { useAuth } from '../../../Context/AuthContext.jsx';  // 🆕
+import IngredientsDetails from '../IngredientsDetails/IngredientsDetails.jsx';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -55,6 +56,7 @@ const RecipeDetail = () => {
   };
 
   return (
+    <>
     <section className="recipe-detail-container">
       <div className="recipe-content-wrapper">
 
@@ -186,7 +188,9 @@ const RecipeDetail = () => {
           </div>
         </div>
       )}
-    </section>
+      </section>
+      <IngredientsDetails/>
+      </>
   );
 };
 
