@@ -12,6 +12,7 @@ import Footer from './Components/Footer/footer.jsx';
 import { createBrowserRouter, Outlet, RouterProvider, Navigate } from 'react-router-dom';
 import ScrollToTop from './Components/Helper/ScrollToTop.jsx';
 import RecipeDetail from './Components/RecipesComp/RecipeDetails/RecipeDetails.jsx';
+import IngredientsDetails from './Components/RecipesComp/IngredientsDetails/IngredientsDetails.jsx';
 import RecipesList from './Components/RecipesComp/MealTypeRecipes/RecipesList.jsx';
 import EditRecipe from './pages/EditRecipe.jsx';
 import AddRecipe from './pages/AddRecipe.jsx';
