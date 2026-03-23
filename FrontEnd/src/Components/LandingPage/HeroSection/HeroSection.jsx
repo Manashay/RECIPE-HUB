@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowDown, Carrot } from 'lucide-react';
 import './HeroSection.css';
-import broccoli from '../../../assets/broccoli.png'
+import broccoli from '../../../assets/Broccoli.png'
 import Plate from '../../../assets/Plate.avif'
 import avocado from '../../../assets/Avocado.png';
 import carrot from '../../../assets/Carrot.png';
