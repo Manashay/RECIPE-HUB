@@ -2,6 +2,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
 
+axios.defaults.withCredentials = true;
+
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Recipes from './pages/Recipes.jsx';
