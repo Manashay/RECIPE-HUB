@@ -21,7 +21,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     expires: new Date(Date.now() + parseDuration(process.env.JWT_EXPIRES_IN)),
     httpOnly: true, // Shields token from XSS
     secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   };
 
   res
