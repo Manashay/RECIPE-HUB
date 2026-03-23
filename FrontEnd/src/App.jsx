@@ -71,8 +71,8 @@ const router = createBrowserRouter([
       { path: "/recipes/:mealType", element: <ProtectedRoute><RecipesList /></ProtectedRoute> },
       
       // ✅ FIX 1: Removed IngredientsDetails from the router
-      { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /></ProtectedRoute> },
       { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /><IngredientsDetails /></ProtectedRoute> },
+      { path: "/recipeDetails/:id", element: <ProtectedRoute><RecipeDetail /></ProtectedRoute> },
       
       {
         path: "/recipes/edit/:id",
